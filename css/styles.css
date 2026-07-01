@@ -1,0 +1,32 @@
+/* ============================================================
+   CoaticLab Automotive Studio — base styles
+   (keyframes + resets lifted verbatim from the design's <helmet>)
+   ============================================================ */
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:#F3F3F3;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;color:#1B2436;font-family:'Open Sans',sans-serif;min-height:100vh;overflow-x:clip;}
+img{max-width:100%;}
+a{-webkit-tap-highlight-color:transparent;}
+input,textarea,button,select{font-family:inherit;}
+::selection{background:#21314d;color:#fff;}
+
+@keyframes cl-fade{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+@keyframes cl-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes clHdrSolid{from{opacity:0;}to{opacity:1;}}
+[data-cl-scroll="home"]{animation:clHdrSolid linear both;animation-timeline:scroll(root);animation-range:0 180px;}
+@keyframes cl-diagWipe{0%{transform:translateX(0) skewX(-12deg);}100%{transform:translateX(155%) skewX(-12deg);}}
+@keyframes glossFlash{0%{transform:translateX(-130%) skewX(-8.5deg);opacity:0;}18%{opacity:1;}100%{transform:translateX(150%) skewX(-8.5deg);opacity:0;}}
+@keyframes glossWipe{0%{transform:translateX(-130%) skewX(-8.5deg);opacity:0;}22%{opacity:.9;}100%{transform:translateX(150%) skewX(-8.5deg);opacity:0;}}
+.gloss-flash{animation:glossFlash 1.9s cubic-bezier(.22,.61,.36,1) .25s both;}
+[data-film="in"] .gloss-wipe{animation:glossWipe 1.25s cubic-bezier(.22,.61,.36,1) .1s both;}
+@keyframes vp-pulse{0%{transform:translate(-50%,-50%) scale(1);opacity:.55;}70%{transform:translate(-50%,-50%) scale(1.55);opacity:0;}100%{opacity:0;}}
+@media (prefers-reduced-motion: reduce){.gloss-flash,.gloss-wipe{animation:none !important;opacity:0 !important;}}
+
+/* ---- SPA view switching ---- */
+.dc-page{display:none;}
+.dc-page.is-active{display:block;}
+
+/* ---- responsive header (runtime used isMobile = width < 1080) ---- */
+.dc-only-desktop,.dc-only-mobile{display:contents;}
+@media (max-width:1079px){.dc-only-desktop{display:none !important;}}
+@media (min-width:1080px){.dc-only-mobile{display:none !important;}}
