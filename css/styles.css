@@ -26,6 +26,10 @@ input,textarea,button,select{font-family:inherit;}
 .dc-page{display:none;}
 .dc-page.is-active{display:block;}
 
+/* ---- Instagram embeds: floor height so the grid never collapses
+   before Instagram's embed.js applies the real per-post height ---- */
+.dc-instagram-feed iframe.instagram-media{min-height:500px;}
+
 /* ---- responsive header (runtime used isMobile = width < 1080) ---- */
 .dc-only-desktop,.dc-only-mobile{display:contents;}
 @media (max-width:1079px){.dc-only-desktop{display:none !important;}}
