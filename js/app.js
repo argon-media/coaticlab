@@ -101,7 +101,8 @@
   function sizeCoverFrames() {
     try {
       document.querySelectorAll('iframe[data-cover-frame]').forEach(function (f) {
-        var p = f.parentElement; if (!p) return;
+        // measure against the positioned container, not a display-collapsed wrapper
+        var p = f.offsetParent || f.parentElement; if (!p) return;
         var pw = p.clientWidth, ph = p.clientHeight;
         if (!pw || !ph) return;
         var raw = f.getAttribute('data-cover-frame') || '';
