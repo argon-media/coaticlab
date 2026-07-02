@@ -41,6 +41,16 @@ input,textarea,button,select{font-family:inherit;}
 /* Trifecta progress fill */
 @keyframes trifFill{from{height:0;}to{height:100%;}}
 
+/* ---- unified button hover (lift + shadow) on all primary CTAs ---- */
+.cl-btn{transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s ease,background-color .2s ease,border-color .2s ease,filter .2s ease !important;will-change:transform;}
+.cl-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(14,30,60,0.22);}
+.cl-btn:active{transform:translateY(0);box-shadow:0 6px 14px rgba(14,30,60,0.20);}
+.cl-btn:focus-visible{outline:2px solid #7E9BD6;outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){
+  .cl-btn{transition:background-color .2s ease,filter .2s ease,box-shadow .2s ease !important;}
+  .cl-btn:hover,.cl-btn:active{transform:none;}
+}
+
 /* ---- SPA view switching ---- */
 .dc-page{display:none;}
 .dc-page.is-active{display:block;}
