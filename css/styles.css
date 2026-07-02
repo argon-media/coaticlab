@@ -1,6 +1,7 @@
 /* ============================================================
    CoaticLab Automotive Studio — base styles
-   (keyframes + resets lifted verbatim from the design's <helmet>)
+   (resets, keyframes, and hover systems lifted from the design's
+   <helmet>; SPA + Trifecta rules added below)
    ============================================================ */
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
@@ -22,6 +23,24 @@ input,textarea,button,select{font-family:inherit;}
 @keyframes vp-pulse{0%{transform:translate(-50%,-50%) scale(1);opacity:.55;}70%{transform:translate(-50%,-50%) scale(1.55);opacity:0;}100%{opacity:0;}}
 @media (prefers-reduced-motion: reduce){.gloss-flash,.gloss-wipe{animation:none !important;opacity:0 !important;}}
 
+/* service cards (home) hover system */
+.svc-card{transition:transform .28s cubic-bezier(.22,.61,.36,1);}
+.svc-card:hover{transform:translateY(-6px);}
+.svc-media{box-shadow:0 8px 22px rgba(14,30,60,0.10);transition:box-shadow .28s ease-out;}
+.svc-card:hover .svc-media{box-shadow:0 28px 56px rgba(14,30,60,0.30);}
+.svc-media iframe{transition:transform .3s ease-out;}
+.svc-card:hover .svc-media iframe{transform:translate(-50%,-50%) scale(1.07);}
+.svc-media video{transition:transform .3s ease-out;}
+.svc-card:hover .svc-media video{transform:scale(1.07);}
+.svc-arrow{transition:background-color .25s ease-out,color .25s ease-out,border-color .25s ease-out;}
+.svc-card:hover .svc-arrow{background:#fff !important;color:#21314d !important;border-color:#fff !important;}
+.svc-learn{background-image:linear-gradient(#21314d,#21314d);background-repeat:no-repeat;background-position:0 100%;background-size:0% 2px;transition:background-size .28s ease-out;}
+.svc-card:hover .svc-learn{background-size:100% 2px;}
+@media (prefers-reduced-motion: reduce){.svc-card,.svc-media,.svc-media iframe,.svc-media video,.svc-arrow,.svc-learn{transition:none !important;}}
+
+/* Trifecta progress fill */
+@keyframes trifFill{from{height:0;}to{height:100%;}}
+
 /* ---- SPA view switching ---- */
 .dc-page{display:none;}
 .dc-page.is-active{display:block;}
@@ -30,3 +49,23 @@ input,textarea,button,select{font-family:inherit;}
 .dc-only-desktop,.dc-only-mobile{display:contents;}
 @media (max-width:1079px){.dc-only-desktop{display:none !important;}}
 @media (min-width:1080px){.dc-only-mobile{display:none !important;}}
+
+/* ---- Trifecta interactive (active state via .is-active) ---- */
+@media (max-width:1079px){.trif-grid{grid-template-columns:1fr !important;}}
+.trif-btn{opacity:.92;}
+.trif-btn.is-active{opacity:1;}
+.trif-num{color:#C2CBDA;}
+.trif-btn.is-active .trif-num{color:#21314d;}
+.trif-title{color:#AEB6C4;}
+.trif-btn.is-active .trif-title{color:#21314d;}
+.trif-desc{display:none;}
+.trif-btn.is-active .trif-desc{display:block;}
+.trif-fill{height:0;animation:none;}
+.trif-btn.is-active .trif-fill{animation:trifFill 6s linear forwards;}
+.trif-visual{position:absolute;inset:0;opacity:0;transform:scale(1.04);transition:opacity .6s ease,transform 6.2s ease;z-index:1;}
+.trif-visual.is-active{opacity:1;transform:scale(1);z-index:2;}
+@media (prefers-reduced-motion: reduce){
+  .trif-fill{height:100%;}
+  .trif-btn.is-active .trif-fill{animation:none;}
+  .trif-visual{transition:none;}
+}

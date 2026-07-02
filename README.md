@@ -36,8 +36,10 @@ python3 -m http.server 8080     # then open http://localhost:8080
 
 - Service clip loops (`data-bgloop`) and the PPF install film stream from
   `coatic-lab.argon-devsite.com` / Vimeo.
-- The Trifecta section's featured video was not included in the handoff; its
-  play button currently points at an existing CoaticLab build clip as a
-  placeholder — swap `data-src` on that button for the final video.
+- The Trifecta section is an interactive showcase — three tabs (PPF, Ceramic,
+  Tint) that auto-advance every 6s and switch on click (`js/app.js`).
+- The "On the Instagram" strip shows the six real @coaticlab post images
+  (saved under `assets/instagram/`), each linking to its post. It is a
+  snapshot, not a live feed — send new post URLs to refresh it.
 - A few slots are intentionally marked in the design as needing input
   (e.g. Utah legal tint percentages, SunTek coverage image).

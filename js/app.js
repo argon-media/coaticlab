@@ -192,6 +192,38 @@
   }
   function moveReviews(dir) { reviewsStart += dir * reviewsPer(); renderReviews(); }
 
+  /* ---------------- Trifecta interactive showcase ---------------- */
+  function initTrifecta() {
+    var btns = [].slice.call(document.querySelectorAll('.trif-btn'));
+    if (!btns.length) return;
+    var visuals = [].slice.call(document.querySelectorAll('.trif-visual'));
+    var capTitle = document.querySelector('.trif-cap-title');
+    var capNum = document.querySelector('.trif-cap-num');
+    var cur = 0, timer = null;
+    function restartFill(b) {
+      var f = b.querySelector('.trif-fill');
+      if (f) { f.style.animation = 'none'; void f.offsetWidth; f.style.animation = ''; }
+    }
+    function show(i) {
+      cur = i;
+      btns.forEach(function (b, k) { b.classList.toggle('is-active', k === i); });
+      visuals.forEach(function (v, k) { v.classList.toggle('is-active', k === i); });
+      if (capTitle) capTitle.textContent = btns[i].getAttribute('data-title');
+      if (capNum) capNum.textContent = btns[i].getAttribute('data-num') + ' / 03';
+      restartFill(btns[i]);
+    }
+    function schedule() {
+      if (reduceMotion) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () { show((cur + 1) % btns.length); schedule(); }, 6000);
+    }
+    btns.forEach(function (b, i) {
+      b.addEventListener('click', function (e) { e.preventDefault(); show(i); schedule(); });
+    });
+    show(0);
+    schedule();
+  }
+
   /* ---------------- quote / contact forms ---------------- */
   document.addEventListener('submit', function (e) {
     var f = e.target.closest && e.target.closest('[data-action="submit-quote"]');
@@ -223,6 +255,7 @@
     showPage(h || 'home');
     initIntro();
     initGallery();
+    initTrifecta();
     renderReviews();
     sizeCoverFrames();
     setTimeout(sizeCoverFrames, 300);
