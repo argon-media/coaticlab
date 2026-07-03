@@ -192,6 +192,33 @@
   }
   function moveReviews(dir) { reviewsStart += dir * reviewsPer(); renderReviews(); }
 
+  /* ---------------- count-up stat ---------------- */
+  function initCountUp() {
+    var cu = document.querySelector('[data-count-up]');
+    if (!cu) return;
+    var target = parseInt(cu.getAttribute('data-count-up'), 10) || 0;
+    var fmt = function (n) { return Math.round(n).toLocaleString('en-US'); };
+    if (reduceMotion) { cu.textContent = fmt(target); return; }
+    var done = false;
+    function run() {
+      if (done) return; done = true;
+      var dur = 1700, t0 = performance.now();
+      function step(now) {
+        var p = Math.min(1, (now - t0) / dur);
+        var e = 1 - Math.pow(1 - p, 3);
+        cu.textContent = fmt(target * e);
+        if (p < 1) requestAnimationFrame(step); else cu.textContent = fmt(target);
+      }
+      requestAnimationFrame(step);
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) { if (en.isIntersecting) { run(); obs.disconnect(); } });
+      }, { threshold: 0.4 });
+      io.observe(cu);
+    } else { run(); }
+  }
+
   /* ---------------- Trifecta interactive showcase ---------------- */
   function initTrifecta() {
     var btns = [].slice.call(document.querySelectorAll('.trif-btn'));
@@ -256,6 +283,7 @@
     initIntro();
     initGallery();
     initTrifecta();
+    initCountUp();
     renderReviews();
     sizeCoverFrames();
     setTimeout(sizeCoverFrames, 300);
