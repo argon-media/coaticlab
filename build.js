@@ -228,8 +228,19 @@ body = body.replace(
   'Watch a full-body paint protection film build from start to finish. Every vehicle starts with a wash and decontamination, then paint refinement, where orbital polishers remove the swirls, light scratches, and haze even new paint can carry. Trim and badges come off for a seamless fit, then each piece of film is precisely cut, hand-applied across every panel, and trimmed with the edges tucked out of sight. This beautiful Raptor received full-body paint protection film finished with a Gyeon ceramic coating for added gloss and easier cleaning. Our process is never rushed. It is done right.'
 );
 
-/* quote-form bottom badge: match the "Quick Response" checkmark copy */
-body = body.replace(/Reply within 1 business day/g, 'Quick Response');
+/* quote-form bottom badges: checkmark icons + copy per client screenshot
+   ("Reply within 1 business day" / "Licensed & insured") */
+{
+  var badgeCheck = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M5 12l5 5L20 6"></path></svg>';
+  var badgeSpanOpen = '<span style="display:inline-flex;align-items:center;gap:7px;font-family:\'Open Sans\',sans-serif;font-size:13px;color:#3A4252;font-weight:600;">';
+  var oldBadges = '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px;">' +
+    badgeSpanOpen + '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3 2"></path></svg>Reply within 1 business day</span>' +
+    badgeSpanOpen + '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 3l7 3v5.5c0 4.2-3 6.9-7 8.5-4-1.6-7-4.3-7-8.5V6z"></path></svg>Licensed &amp; insured</span></div>';
+  var newBadges = '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px;">' +
+    badgeSpanOpen + badgeCheck + 'Reply within 1 business day</span>' +
+    badgeSpanOpen + badgeCheck + 'Licensed &amp; insured</span></div>';
+  body = body.split(oldBadges).join(newBadges);
+}
 
 /* keep the process video muted (no autoplay-with-sound on load) */
 body = body.replace(/muted=0/g, 'muted=1');
