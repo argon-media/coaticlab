@@ -225,8 +225,11 @@ body = body.replace(/(margin-top:clamp\(36px,5vw,56px\);background:)#fff/, '$1#e
 /* PPF "Process, Start to Finish" copy */
 body = body.replace(
   'Watch a full paint protection film installation from start to finish. Every vehicle begins with a thorough wash and decontamination, followed by precise pattern cutting and careful hand application across each panel, with edges wrapped and tucked out of sight. A final inspection confirms a flawless, virtually invisible finish built to last.',
-  'Watch a full-body paint protection film build from start to finish. Every vehicle starts with a wash and decontamination, then paint refinement, where orbital polishers remove the swirls, light scratches, and haze even new paint can carry. Trim and badges come off for a seamless fit, then each piece of film is precisely cut, hand-applied across every panel, and trimmed with the edges tucked out of sight. This Raptor got full-body PPF finished with a Gyeon ceramic coating for added gloss and easier cleaning. Our process is never rushed. It is done right.'
+  'Watch a full-body paint protection film build from start to finish. Every vehicle starts with a wash and decontamination, then paint refinement, where orbital polishers remove the swirls, light scratches, and haze even new paint can carry. Trim and badges come off for a seamless fit, then each piece of film is precisely cut, hand-applied across every panel, and trimmed with the edges tucked out of sight. This beautiful Raptor received full-body paint protection film finished with a Gyeon ceramic coating for added gloss and easier cleaning. Our process is never rushed. It is done right.'
 );
+
+/* quote-form bottom badge: match the "Quick Response" checkmark copy */
+body = body.replace(/Reply within 1 business day/g, 'Quick Response');
 
 /* keep the process video muted (no autoplay-with-sound on load) */
 body = body.replace(/muted=0/g, 'muted=1');
