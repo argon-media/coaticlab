@@ -237,7 +237,7 @@ body = body.replace(
     badgeSpanOpen + '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3 2"></path></svg>Reply within 1 business day</span>' +
     badgeSpanOpen + '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 3l7 3v5.5c0 4.2-3 6.9-7 8.5-4-1.6-7-4.3-7-8.5V6z"></path></svg>Licensed &amp; insured</span></div>';
   var newBadges = '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px;">' +
-    badgeSpanOpen + badgeCheck + 'Reply within 1 business day</span>' +
+    badgeSpanOpen + badgeCheck + 'Quick Response</span>' +
     badgeSpanOpen + badgeCheck + 'Licensed &amp; insured</span></div>';
   body = body.split(oldBadges).join(newBadges);
 }
