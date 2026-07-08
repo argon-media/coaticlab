@@ -246,6 +246,35 @@ body = body.replace(
 body = body.replace(/muted=0/g, 'muted=1');
 body = body.replace(/aria-label="Play video with sound"/g, 'aria-label="Play video"');
 
+/* "Built on craftsmanship": add team-photo placeholder + caption, and a
+   "Family Owned & Operated" heading above the "At CoaticLab..." paragraphs */
+body = body.replace(
+  'and we go the extra mile on every build, at a fair price.</p>',
+  'and we go the extra mile on every build, at a fair price.</p>' +
+  '<div data-placeholder="team-photo" style="margin:0 0 14px;border-radius:2px;overflow:hidden;background:#EDEFF2;border:1px dashed #C7CDD8;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;"><span style="font-family:\'DM Mono\',monospace;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:#9AA0AD;">Team photo — coming soon</span></div>' +
+  '<p data-placeholder="team-caption" style="font-family:\'Open Sans\',sans-serif;color:#7A8296;font-style:italic;font-size:clamp(13px,1.25vw,14.5px);line-height:1.7;margin:0 0 26px;max-width:60ch;">[ A short line about the CoaticLab crew goes here — send us your team details and we will drop them in. ]</p>' +
+  '<h3 style="font-family:\'Archivo\',sans-serif;font-variation-settings:\'wdth\' 125,\'wght\' 840;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.95;margin:0 0 16px;color:#21314d;font-size:clamp(22px,2.6vw,34px);">Family Owned &amp; Operated</h3>'
+);
+
+/* "A track record" subtext */
+body = body.replace(
+  'Six years of film, coating and tint work across Northern Utah.',
+  'Over six years of professional paint protection film, ceramic coating and window film.'
+);
+
+/* "From daily drivers..." heading: drop "new trucks"; remove the paragraph under it */
+body = body.replace(
+  'From daily drivers to new trucks to exotics all protected to the CoaticLab standard',
+  'From daily drivers to exotics all protected to the CoaticLab standard'
+);
+body = body.split('<p style="font-family: \'Open Sans\',sans-serif; color: #3A4252; font-size: clamp(13px,1.3vw,15px); line-height: 1.65; margin: 0; max-width: 80ch">Daily drivers, trucks, EVs, and exotics, all protected to one standard. Raptors, Super Dutys, and Broncos to Tesla, Audi, Mercedes, BMW, and beyond.</p>').join('');
+
+/* "Recent builds" subtext */
+body = body.replace(
+  'A look at recent paint protection, ceramic, and tint work, straight from the studio bay and back out on Utah roads.',
+  'A look at recent paint protection film, ceramic coating, and ceramic window film installs, straight from the studio bay and back out on Utah roads'
+);
+
 /* Instagram: point the 6 tiles at the real post images we downloaded */
 body = body.replace(/(href="https:\/\/www\.instagram\.com\/p\/([A-Za-z0-9_-]+)\/"[^>]*>\s*<img src=")assets\/[A-Za-z0-9._-]+(")/g,
   (m, pre, code, post) => pre + 'assets/instagram/' + code + '.jpg' + post);
