@@ -246,14 +246,21 @@ body = body.replace(
 body = body.replace(/muted=0/g, 'muted=1');
 body = body.replace(/aria-label="Play video with sound"/g, 'aria-label="Play video"');
 
-/* "Built on craftsmanship": add team-photo placeholder + caption, and a
-   "Family Owned & Operated" heading above the "At CoaticLab..." paragraphs */
+/* "Built on craftsmanship": add a "Family Owned & Operated" heading above the
+   "At CoaticLab..." paragraphs */
 body = body.replace(
   'and we go the extra mile on every build, at a fair price.</p>',
   'and we go the extra mile on every build, at a fair price.</p>' +
-  '<div data-placeholder="team-photo" style="margin:0 0 14px;border-radius:2px;overflow:hidden;background:#EDEFF2;border:1px dashed #C7CDD8;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;"><span style="font-family:\'DM Mono\',monospace;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:#9AA0AD;">Team photo — coming soon</span></div>' +
-  '<p data-placeholder="team-caption" style="font-family:\'Open Sans\',sans-serif;color:#7A8296;font-style:italic;font-size:clamp(13px,1.25vw,14.5px);line-height:1.7;margin:0 0 26px;max-width:60ch;">[ A short line about the CoaticLab crew goes here — send us your team details and we will drop them in. ]</p>' +
   '<h3 style="font-family:\'Archivo\',sans-serif;font-variation-settings:\'wdth\' 125,\'wght\' 840;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.95;margin:0 0 16px;color:#21314d;font-size:clamp(22px,2.6vw,34px);">Family Owned &amp; Operated</h3>'
+);
+/* keep the right-column studio image; add a caption underneath it */
+body = body.replace(
+  '<div style="position:relative;min-height:460px;overflow:hidden;">',
+  '<div style="display:flex;flex-direction:column;gap:14px;"><div style="position:relative;min-height:460px;flex:1;overflow:hidden;">'
+);
+body = body.replace(
+  '<img src="assets/rwb-event.jpg" alt="The CoaticLab team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;">',
+  '<img src="assets/rwb-event.jpg" alt="The CoaticLab team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;"></div><p data-placeholder="team-caption" style="font-family:\'Open Sans\',sans-serif;color:#7A8296;font-style:italic;font-size:clamp(13px,1.25vw,14.5px);line-height:1.7;margin:0;max-width:60ch;">[ A short line about the CoaticLab crew goes here — send us your team details and we will drop them in. ]</p>'
 );
 
 /* "A track record" subtext */
