@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</helmet>
+<div style="width:100%;font-family:'Open Sans',sans-serif;">
+
+  <div style="background:#fff;border-radius:16px;box-shadow:0 14px 38px rgba(14,30,60,0.08);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <svg viewBox="0 0 48 48" width="30" height="30" style="flex-shrink:0;"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+      <span style="font-family:'Open Sans',sans-serif;font-weight:700;font-size:15px;color:#15233F;">Excellent</span>
+      <span style="display:flex;gap:2px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+      </span>
+      <span style="font-family:'Open Sans',sans-serif;font-weight:700;font-size:15px;color:#15233F;">{{ rating }}</span>
+      <span style="width:1px;height:20px;background:#E1E5EC;"></span>
+      <span style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#5A6273;">{{ count }} reviews</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <sc-if value="{{ isCarousel }}" hint-placeholder-val="{{ true }}"><button onClick="{{ prev }}" aria-label="Previous reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M15 5l-7 7 7 7"></path></svg></button></sc-if>
+      <sc-if value="{{ isCarousel }}" hint-placeholder-val="{{ true }}"><button onClick="{{ next }}" aria-label="Next reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M9 5l7 7-7 7"></path></svg></button></sc-if>
+      <a href="{{ writeUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#21314d;color:#fff;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;box-shadow:0 10px 22px rgba(29,55,108,0.24);" style-hover="background:#15294F;">Write a review</a>
+      <a href="{{ readUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#21314d;border:1px solid #C9D2E0;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;" style-hover="background:#EEF2F8;">Read more</a>
+    </div>
+  </div>
+
+  <div style="margin-top:22px;">
+    <div style="min-width:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;align-items:stretch;">
+      <sc-for list="{{ reviewsList }}" as="r" hint-placeholder-count="3">
+        <div style="flex:1;min-width:0;background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(14,30,60,0.08);padding:24px;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <sc-if value="{{ r.img }}" hint-placeholder-val="{{ false }}"><img src="{{ r.img }}" alt="{{ r.name }}" style="width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#E7E4DC;"></sc-if><sc-if value="{{ r.noImg }}" hint-placeholder-val="{{ true }}"><div style="width:46px;height:46px;border-radius:50%;background:#21314d;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-weight:700;font-size:15px;flex-shrink:0;letter-spacing:0.02em;">{{ r.initials }}</div></sc-if>
+            <div style="min-width:0;">
+              <div style="font-family:'Open Sans',sans-serif;font-weight:700;font-size:15px;color:#15233F;">{{ r.name }}</div>
+              <div style="font-family:'Open Sans',sans-serif;font-size:12px;color:#8A93A3;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ r.meta }}</div>
+              <div style="font-family:'Open Sans',sans-serif;font-size:12.5px;color:#8A93A3;margin-top:1px;">{{ r.date }}</div>
+            </div>
+            <svg viewBox="0 0 48 48" width="20" height="20" style="margin-left:auto;flex-shrink:0;"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"></path><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"></path><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"></path><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"></path></svg>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:12px;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>
+          </div>
+          <p style="font-family:'Open Sans',sans-serif;font-size:14.5px;line-height:1.6;color:#3A4252;margin:0 0 14px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">{{ r.text }}</p>
+          <a href="{{ writeUrl }}" target="_blank" rel="noopener" style="margin-top:auto;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#8A93A3;text-decoration:none;" style-hover="color:#21314d;">Read more</a>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1100,&quot;height&quot;:380},&quot;rating&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5.0&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;count&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;214&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;writeUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.google.com/maps&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { start: 0, w: (typeof window !== 'undefined' ? window.innerWidth : 1200) };
+  componentDidMount() { this._r = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this._r); }
+  componentWillUnmount() { window.removeEventListener('resize', this._r); }
+  data() {
+    return [
+      { name: 'Brian Dyer', initials: 'BD', meta: 'Local Guide · 12 reviews · 4 photos', date: 'a month ago', text: 'I can\u2019t say enough good things about CoaticLab and especially Blake. From the very beginning, Blake was incredibly patient, knowledgeable, and genuinely invested in helping us find the perfect wrap color for our 1991 Mazda Miata. We went through countless options, comparisons, and ideas, and he never once made us feel rushed or like we were asking too many questions. His attention to detail and willingness to help made the entire process exciting instead of overwhelming.' },
+      { name: 'Jeffrey Gould', initials: 'JG', meta: '1 review · 5 photos', date: '3 months ago', text: 'First time with CoaticLab, Blake answered all my questions. I chose to do the full front PPF, Ceramic Coating level 2 and the Ceramic Window Tint. Blake and his staff did and Outstanding Job. I Highly Recommend them for your automotive needs.' },
+      { name: 'Karson Nilsen', initials: 'KN', img: 'assets/review-karson.png', meta: '4 reviews · 6 photos', date: '5 months ago', text: 'Got the ceramic coating and tint done at Coaticlab and it looks absolutely amazing. My paint honestly looks better than when I bought the car brand new. My mom had her new car coated here first, and after seeing how good hers turned out, I knew I had to do the same when I got mine. Everything turned out perfect and the car looks incredible.' },
+      { name: 'Kara Jean Kelly', initials: 'KK', meta: 'Local Guide · 76 reviews · 32 photos', date: '3 months ago', text: 'I truly can\u2019t say enough great things about my experience with CoaticLab. From the moment I requested a quote to the moment they pulled my vehicle out of the garage, it felt like a red carpet experience. I was genuinely impressed by every step of the process and the way I was treated.' },
+      { name: 'Brad Vorwaller', initials: 'BV', meta: '4 reviews · 3 photos', date: '11 months ago', text: 'Took my daughters 2025 IS350 F Sport to have it ceramic coated, and the wheels and I have to say they knocked it out the park. It far exceeded my expectations. Having it ceramic coated makes the paint pop so much, and has a shine far more than it had before. Blake did an amazing job making sure they got all the details of what I was wanting done, keeping me updated on where they were at with the car, and how to properly maintain the coating to get the most out of it. I highly recommend CoaticLab. Thanks Blake and your team for doing an amazing job.' },
+      { name: 'Braden Beus', initials: 'BB', meta: '4 reviews · 2 photos', date: '6 months ago', text: 'Don\u2019t waste your time and money going to other \u201ccheaper\u201d shops first. Go straight to Coatic Lab where it will get done right every time. These guys do it better. I had to learn the hard way.... Coatic lab had to fix a horrible install I had from another shop. Coatic lab earned my trust and now has a lifetime customer! Thanks guys' },
+      { name: 'Alvin Labog', initials: 'AL', meta: 'Local Guide · 12 reviews · 5 photos', date: '3 months ago', text: 'Coaticlab is awesome fair pricing, legit service, and treats customers the way they should be treated. The quality of work is phenomenal. Can\u2019t say enough good things about what they do! 100% !!!' },
+      { name: 'Antonio Martinez', initials: 'AM', meta: '8 reviews · 1 photo', date: '5 months ago', text: 'Just picked up my Passport and the SUV looks amazing. Blake and his team did an amazing job and got it done pretty fast for everything I had done. I will be a returning customer and would recommend him to anyone looking to have their car tinted, detailed or wrapped' },
+      { name: 'Brian Golden', initials: 'BG', meta: '8 reviews · 1 photo', date: 'a month ago', text: 'Blake is amazing. Called him a couple of months ago for ceramic coating on a new Tiguan, he did such a great job that we called him back after buying a new jeep. My wife decided on PPF and Ceramic coating on her jeep and Blakes attention to detail and willingness to go the extra mile made the project come out perfect. Thank you!!' },
+      { name: 'Mark Lee Earl', initials: 'ME', meta: 'Local Guide · 42 reviews · 419 photos', date: '2 months ago', text: 'I believe that ceramic coating and quality vinyl wrap can add years of protection and luster for your vehicle, so I was really looking for exemplary service and skilled professionalism, which Blake and the Coaticlab team provided with both of my visits. I am delighted at the quality work, easy and superb customer service, and complete automotive knowledge with Coaticlab. My car looks fantastic even after heavy mountain rain storms. Highly recommended, thanks Blake!' },
+      { name: 'Daniel Stephens', initials: 'DS', meta: '14 reviews · 3 photos', date: '2 months ago', text: 'I am so pleased with how my truck turned out. It literally looks like new and even better. Coptic-Lab did a marvelous job coating and protecting my truck. My Ford F150 is ten years old. I take exceptional care of it and therefore it runs like a new. The only thing wrong with the truck has been the paint. It was flaking off all over the truck. I had the paint all taken care of and wanted it to last another ten years at least. I was referred to Coatic-Lab by my son in law who had a full wrap on his new f350. After a couple of years his truck still looks amazing. I am so happy with the results and how it makes my truck look new. If I were to buy another new vehicle I would have it wrapped by these good people. The process was fast, easy, and fun. Dan' }
+    ];
+  }
+  renderVals() {
+    const all = this.data();
+    const per = this.state.w < 700 ? 1 : (this.state.w < 1040 ? 2 : 3);
+    const len = all.length;
+    const isGrid = this.props.layout === 'grid';
+    const start = ((this.state.start % len) + len) % len;
+    const visible = [];
+    if (isGrid) {
+      all.forEach(rr => visible.push(Object.assign({}, rr, { noImg: !rr.img })));
+    } else {
+      for (let k = 0; k < Math.min(per, len); k++) { const rr = all[(start + k) % len]; visible.push(Object.assign({}, rr, { noImg: !rr.img })); }
+    }
+    return {
+      rating: this.props.rating ?? '5.0',
+      count: this.props.count ?? '360+',
+      writeUrl: this.props.writeUrl ?? 'https://search.google.com/local/reviews?placeid=ChIJ5SUPzJ4BU4cRmS7cZqw0N40',
+      readUrl: this.props.readUrl ?? 'https://www.google.com/maps/place/CoaticLab/@41.0897336,-112.0327797,17z/data=!4m18!1m9!3m8!1s0x8753019ecc0f25e5:0x8d3734ac66dc2e99!2sCoaticLab!8m2!3d41.0897336!4d-112.0327797!9m1!1b1!16s%2Fg%2F11h287xpx0!3m7!1s0x8753019ecc0f25e5:0x8d3734ac66dc2e99!8m2!3d41.0897336!4d-112.0327797!9m1!1b1!16s%2Fg%2F11h287xpx0?entry=ttu',
+      reviewsList: visible,
+      isCarousel: !isGrid,
+      next: () => this.setState(s => ({ start: s.start + per })),
+      prev: () => this.setState(s => ({ start: s.start - per }))
+    };
+  }
+}
+</script>
+</body>
+</html>

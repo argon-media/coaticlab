@@ -1,0 +1,40 @@
+{
+  "rewrites": [
+    {
+      "source": "/ppf",
+      "destination": "/ppf.dc.html"
+    },
+    {
+      "source": "/ceramic",
+      "destination": "/ceramic.dc.html"
+    },
+    {
+      "source": "/tint",
+      "destination": "/tint.dc.html"
+    },
+    {
+      "source": "/correction",
+      "destination": "/correction.dc.html"
+    },
+    {
+      "source": "/tesla",
+      "destination": "/tesla.dc.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.dc.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/gallery.dc.html"
+    },
+    {
+      "source": "/reviews",
+      "destination": "/reviews.dc.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.dc.html"
+    }
+  ]
+}

@@ -3,43 +3,46 @@
 Marketing site for CoaticLab Automotive Studio (Gyeon-certified PPF, ceramic
 coatings, window tint, and paint correction in Clearfield, UT).
 
-Built as a **self-contained static site** — plain HTML/CSS/JS, no build step and
-no runtime framework. It deploys to any static host (Vercel, Netlify, S3, …).
+## Architecture
 
-## Structure
+A **multi-page site published straight from Claude Design** using the design's
+own renderer (`support.js`, which mounts the pages with React). Each page is a
+standalone `.dc.html` document; the runtime renders it client-side.
 
 ```
-index.html      # single-page site (9 hash-routed views: home, ppf, ceramic,
-                #   tint, correction, tesla, about, gallery, contact)
-css/styles.css  # base styles, keyframes, responsive header, view switching
-js/app.js       # hash router, hover styles, gallery filter, reviews carousel,
-                #   video handling, quote form, intro wipe
-assets/         # images, logos, certification + brand marks
+index.html            # Home
+ppf.dc.html           # /ppf
+ceramic.dc.html       # /ceramic
+tint.dc.html          # /tint
+correction.dc.html    # /correction
+tesla.dc.html         # /tesla
+about.dc.html         # /about
+gallery.dc.html       # /gallery
+reviews.dc.html       # /reviews
+contact.dc.html       # /contact
+GoogleReviews.dc.html, GoogleReviewsPPF.dc.html, VideoPlayer.dc.html  # components
+support.js            # design runtime (loads React, renders <x-dc>, fetches components)
+assets/               # images, logos, brand + certification marks, assets/instagram/
+vercel.json           # clean-URL rewrites (/ppf -> /ppf.dc.html, etc.)
 ```
 
-Navigation is client-side via URL hash (`#ppf`, `#contact`, …); every route
-serves `index.html`.
+Clean URLs are provided by `vercel.json` rewrites; in-page navigation uses
+`window.location.href` to `/ppf`, `/tesla`, etc.
 
-## Source
+## Updating from a new Claude Design export
 
-Recreated pixel-for-pixel from the Claude Design handoff
-`CoaticLab Site v2.dc.html`. The design's reactive prototype was compiled to
-static markup and its interaction logic ported to `js/app.js`.
-
-## Local preview
-
-```bash
-python3 -m http.server 8080     # then open http://localhost:8080
-```
+Re-export the project, then for each page file: keep it verbatim **except**
+rewrite the `goto()` `FILES` map to the clean paths (`/ppf`, `/ceramic`, …),
+and on Home apply the two client overrides — force the process video to
+`muted=1` and point the six Instagram tiles at `assets/instagram/<shortcode>.jpg`.
+Copy `support.js`, the component `.dc.html` files, and `assets/`.
+(The scratchpad `setup_mp.py` script automates this.)
 
 ## Notes
 
 - Service clip loops (`data-bgloop`) and the PPF install film stream from
   `coatic-lab.argon-devsite.com` / Vimeo.
-- The Trifecta section is an interactive showcase — three tabs (PPF, Ceramic,
-  Tint) that auto-advance every 6s and switch on click (`js/app.js`).
-- The "On the Instagram" strip shows the six real @coaticlab post images
-  (saved under `assets/instagram/`), each linking to its post. It is a
-  snapshot, not a live feed — send new post URLs to refresh it.
-- A few slots are intentionally marked in the design as needing input
-  (e.g. Utah legal tint percentages, SunTek coverage image).
+- The "On the Instagram" strip uses the six real @coaticlab post images saved
+  under `assets/instagram/` — a snapshot, not a live feed.
+- The team photo on the About/Home family section is still the studio image
+  (`data-team-photo` marker) with a placeholder caption, pending the real photo.
