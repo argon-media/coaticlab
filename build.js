@@ -25,12 +25,20 @@ const styleMatch = helmet.match(/<style>([\s\S]*?)<\/style>/);
 if (process.argv[4]) fs.writeFileSync(process.argv[4], styleMatch ? styleMatch[1] : '');
 
 /* ================= dc-import: GoogleReviews ================= */
+const REVIEW_WRITE = 'https://search.google.com/local/reviews?placeid=ChIJ5SUPzJ4BU4cRmS7cZqw0N40';
+const REVIEW_READ = 'https://www.google.com/maps/place/CoaticLab/@41.0897336,-112.0327797,17z/data=!4m18!1m9!3m8!1s0x8753019ecc0f25e5:0x8d3734ac66dc2e99!2sCoaticLab!8m2!3d41.0897336!4d-112.0327797!9m1!1b1!16s%2Fg%2F11h287xpx0!3m7!1s0x8753019ecc0f25e5:0x8d3734ac66dc2e99!8m2!3d41.0897336!4d-112.0327797!9m1!1b1!16s%2Fg%2F11h287xpx0?entry=ttu';
 const REVIEWS = [
-  { name: 'Brian Dyer', initials: 'BD', meta: 'Local Guide · 12 reviews', date: 'a month ago', text: 'I can’t say enough good things about CoaticLab and especially Blake. From the very beginning, Blake was incredibly patient, knowledgeable, and genuinely invested in helping us find the perfect wrap color for our 1991 Mazda Miata. We went through countless options, comparisons, and ideas, and he never once made us feel rushed or like we were asking too many questions. His attention to detail and willingness to help made the entire process exciting instead of overwhelming.' },
-  { name: 'Karson Nilsen', initials: 'KN', img: 'assets/review-karson.png', meta: '4 reviews · 9 photos', date: '4 months ago', text: 'Got the ceramic coating and tint done at Coaticlab and it looks absolutely amazing. My paint honestly looks better than when I bought the car brand new. My mom had her new car coated here first, and after seeing how good hers turned out, I knew I had to do the same when I got mine. Everything turned out perfect and the car looks incredible.' },
-  { name: 'Jeffrey Gould', initials: 'JG', meta: '1 review', date: '3 months ago', text: 'First time with CoaticLab, Blake answered all my questions. I chose to do the full front PPF, Ceramic Coating level 2 and the Ceramic Window Tint. Blake and his staff did an Outstanding Job. I Highly Recommend them for your automotive needs.' },
-  { name: 'Kara Jean Kelly', initials: 'KK', meta: 'Local Guide · 76 reviews', date: '2 months ago', text: 'I truly can’t say enough great things about my experience with CoaticLab. From the moment I requested a quote to the moment they pulled my vehicle out of the garage, it felt like a red carpet experience. I was genuinely impressed by every step of the process.' },
-  { name: 'Braxton Schenk', initials: 'BS', meta: 'Local Guide · 15 reviews', date: '7 months ago', text: 'Blake (owner) and his guys are awesome. I took my truck in for some PPF and Ceramic coating and couldn’t be happier. I went back for some additional things like fogging the lights and other things, and their work is just top-notch. Highly recommend.' }
+  { name: 'Brian Dyer', initials: 'BD', meta: 'Local Guide · 12 reviews · 4 photos', date: 'a month ago', text: 'I can’t say enough good things about CoaticLab and especially Blake. From the very beginning, Blake was incredibly patient, knowledgeable, and genuinely invested in helping us find the perfect wrap color for our 1991 Mazda Miata. We went through countless options, comparisons, and ideas, and he never once made us feel rushed or like we were asking too many questions. His attention to detail and willingness to help made the entire process exciting instead of overwhelming.' },
+  { name: 'Jeffrey Gould', initials: 'JG', meta: '1 review · 5 photos', date: '3 months ago', text: 'First time with CoaticLab, Blake answered all my questions. I chose to do the full front PPF, Ceramic Coating level 2 and the Ceramic Window Tint. Blake and his staff did and Outstanding Job. I Highly Recommend them for your automotive needs.' },
+  { name: 'Karson Nilsen', initials: 'KN', img: 'assets/review-karson.png', meta: '4 reviews · 6 photos', date: '5 months ago', text: 'Got the ceramic coating and tint done at Coaticlab and it looks absolutely amazing. My paint honestly looks better than when I bought the car brand new. My mom had her new car coated here first, and after seeing how good hers turned out, I knew I had to do the same when I got mine. Everything turned out perfect and the car looks incredible.' },
+  { name: 'Kara Jean Kelly', initials: 'KK', meta: 'Local Guide · 76 reviews · 32 photos', date: '3 months ago', text: 'I truly can’t say enough great things about my experience with CoaticLab. From the moment I requested a quote to the moment they pulled my vehicle out of the garage, it felt like a red carpet experience. I was genuinely impressed by every step of the process and the way I was treated.' },
+  { name: 'Brad Vorwaller', initials: 'BV', meta: '4 reviews · 3 photos', date: '11 months ago', text: 'Took my daughters 2025 IS350 F Sport to have it ceramic coated, and the wheels and I have to say they knocked it out the park. It far exceeded my expectations. Having it ceramic coated makes the paint pop so much, and has a shine far more than it had before. Blake did an amazing job making sure they got all the details of what I was wanting done, keeping me updated on where they were at with the car, and how to properly maintain the coating to get the most out of it. I highly recommend CoaticLab. Thanks Blake and your team for doing an amazing job.' },
+  { name: 'Braden Beus', initials: 'BB', meta: '4 reviews · 2 photos', date: '6 months ago', text: 'Don’t waste your time and money going to other “cheaper” shops first. Go straight to Coatic Lab where it will get done right every time. These guys do it better. I had to learn the hard way.... Coatic lab had to fix a horrible install I had from another shop. Coatic lab earned my trust and now has a lifetime customer! Thanks guys' },
+  { name: 'Alvin Labog', initials: 'AL', meta: 'Local Guide · 12 reviews · 5 photos', date: '3 months ago', text: 'Coaticlab is awesome fair pricing, legit service, and treats customers the way they should be treated. The quality of work is phenomenal. Can’t say enough good things about what they do! 100% !!!' },
+  { name: 'Antonio Martinez', initials: 'AM', meta: '8 reviews · 1 photo', date: '5 months ago', text: 'Just picked up my Passport and the SUV looks amazing. Blake and his team did an amazing job and got it done pretty fast for everything I had done. I will be a returning customer and would recommend him to anyone looking to have their car tinted, detailed or wrapped' },
+  { name: 'Brian Golden', initials: 'BG', meta: '8 reviews · 1 photo', date: 'a month ago', text: 'Blake is amazing. Called him a couple of months ago for ceramic coating on a new Tiguan, he did such a great job that we called him back after buying a new jeep. My wife decided on PPF and Ceramic coating on her jeep and Blakes attention to detail and willingness to go the extra mile made the project come out perfect. Thank you!!' },
+  { name: 'Mark Lee Earl', initials: 'ME', meta: 'Local Guide · 42 reviews · 419 photos', date: '2 months ago', text: 'I believe that ceramic coating and quality vinyl wrap can add years of protection and luster for your vehicle, so I was really looking for exemplary service and skilled professionalism, which Blake and the Coaticlab team provided with both of my visits. I am delighted at the quality work, easy and superb customer service, and complete automotive knowledge with Coaticlab. My car looks fantastic even after heavy mountain rain storms. Highly recommended, thanks Blake!' },
+  { name: 'Daniel Stephens', initials: 'DS', meta: '14 reviews · 3 photos', date: '2 months ago', text: 'I am so pleased with how my truck turned out. It literally looks like new and even better. Coptic-Lab did a marvelous job coating and protecting my truck. My Ford F150 is ten years old. I take exceptional care of it and therefore it runs like a new. The only thing wrong with the truck has been the paint. It was flaking off all over the truck. I had the paint all taken care of and wanted it to last another ten years at least. I was referred to Coatic-Lab by my son in law who had a full wrap on his new f350. After a couple of years his truck still looks amazing. I am so happy with the results and how it makes my truck look new. If I were to buy another new vehicle I would have it wrapped by these good people. The process was fast, easy, and fun. Dan' }
 ];
 const GSTAR = '<svg width="17" height="17" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>';
 const GLOGO_SM = '<svg viewBox="0 0 48 48" width="20" height="20" style="margin-left:auto;flex-shrink:0;"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"></path><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"></path><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"></path><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"></path></svg>';
@@ -57,7 +65,8 @@ function reviewCard(r) {
 function googleReviewsHTML(attrs) {
   const rating = attrs.rating || '5.0';
   const count = attrs.count || '360+';
-  const writeUrl = attrs['write-url'] || 'https://search.google.com/local/reviews?placeid=ChIJ5SUPzJ4BU4cRmS7cZqw0N40';
+  const writeUrl = attrs['write-url'] || REVIEW_WRITE;
+  const readUrl = attrs['read-url'] || REVIEW_READ;
   const bigStar = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg>';
   const cards = REVIEWS.map(reviewCard).join('\n').replace(/\{\{WRITE\}\}/g, writeUrl);
   return `<div class="dc-reviews" style="width:100%;font-family:'Open Sans',sans-serif;">
@@ -74,6 +83,7 @@ function googleReviewsHTML(attrs) {
       <button type="button" data-action="reviews-prev" aria-label="Previous reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" data-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M15 5l-7 7 7 7"></path></svg></button>
       <button type="button" data-action="reviews-next" aria-label="Next reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" data-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M9 5l7 7-7 7"></path></svg></button>
       <a href="${writeUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#21314d;color:#fff;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;box-shadow:0 10px 22px rgba(29,55,108,0.24);" data-hover="background:#15294F;">Write a review</a>
+      <a href="${readUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#21314d;border:1px solid #C9D2E0;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;" data-hover="background:#EEF2F8;">Read more</a>
     </div>
   </div>
   <div style="margin-top:22px;">
@@ -222,65 +232,14 @@ body = body.replace(/data-cl-scroll="\{\{ headerScrollAttr \}\}"/g, 'data-cl-scr
 /* "Want all three?" Trifecta strip background -> #e7e7e7 */
 body = body.replace(/(margin-top:clamp\(36px,5vw,56px\);background:)#fff/, '$1#e7e7e7');
 
-/* PPF "Process, Start to Finish" copy */
-body = body.replace(
-  'Watch a full paint protection film installation from start to finish. Every vehicle begins with a thorough wash and decontamination, followed by precise pattern cutting and careful hand application across each panel, with edges wrapped and tucked out of sight. A final inspection confirms a flawless, virtually invisible finish built to last.',
-  'Watch a full-body paint protection film build from start to finish. Every vehicle starts with a wash and decontamination, then paint refinement, where orbital polishers remove the swirls, light scratches, and haze even new paint can carry. Trim and badges come off for a seamless fit, then each piece of film is precisely cut, hand-applied across every panel, and trimmed with the edges tucked out of sight. This beautiful Raptor received full-body paint protection film finished with a Gyeon ceramic coating for added gloss and easier cleaning. Our process is never rushed. It is done right.'
-);
-
-/* quote-form bottom badges: checkmark icons + copy per client screenshot
-   ("Reply within 1 business day" / "Licensed & insured") */
-{
-  var badgeCheck = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M5 12l5 5L20 6"></path></svg>';
-  var badgeSpanOpen = '<span style="display:inline-flex;align-items:center;gap:7px;font-family:\'Open Sans\',sans-serif;font-size:13px;color:#3A4252;font-weight:600;">';
-  var oldBadges = '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px;">' +
-    badgeSpanOpen + '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3 2"></path></svg>Reply within 1 business day</span>' +
-    badgeSpanOpen + '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 3l7 3v5.5c0 4.2-3 6.9-7 8.5-4-1.6-7-4.3-7-8.5V6z"></path></svg>Licensed &amp; insured</span></div>';
-  var newBadges = '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px;">' +
-    badgeSpanOpen + badgeCheck + 'Quick Response</span>' +
-    badgeSpanOpen + badgeCheck + 'Licensed &amp; insured</span></div>';
-  body = body.split(oldBadges).join(newBadges);
-}
-
 /* keep the process video muted (no autoplay-with-sound on load) */
 body = body.replace(/muted=0/g, 'muted=1');
 body = body.replace(/aria-label="Play video with sound"/g, 'aria-label="Play video"');
 
-/* "Built on craftsmanship": add a "Family Owned & Operated" heading above the
-   "At CoaticLab..." paragraphs */
-body = body.replace(
-  'and we go the extra mile on every build, at a fair price.</p>',
-  'and we go the extra mile on every build, at a fair price.</p>' +
-  '<h3 style="font-family:\'Archivo\',sans-serif;font-variation-settings:\'wdth\' 125,\'wght\' 840;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.95;margin:0 0 16px;color:#21314d;font-size:clamp(22px,2.6vw,34px);">Family Owned &amp; Operated</h3>'
-);
-/* keep the right-column studio image; add a caption underneath it */
-body = body.replace(
-  '<div style="position:relative;min-height:460px;overflow:hidden;">',
-  '<div style="display:flex;flex-direction:column;gap:14px;"><div style="position:relative;min-height:460px;flex:1;overflow:hidden;">'
-);
-body = body.replace(
-  '<img src="assets/rwb-event.jpg" alt="The CoaticLab team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;">',
-  '<img src="assets/rwb-event.jpg" alt="The CoaticLab team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;"></div><p data-placeholder="team-caption" style="font-family:\'Open Sans\',sans-serif;color:#7A8296;font-style:italic;font-size:clamp(13px,1.25vw,14.5px);line-height:1.7;margin:0;max-width:60ch;">[ A short line about the CoaticLab crew goes here — send us your team details and we will drop them in. ]</p>'
-);
-
-/* "A track record" subtext */
-body = body.replace(
-  'Six years of film, coating and tint work across Northern Utah.',
-  'Over six years of professional paint protection film, ceramic coating and window film.'
-);
-
-/* "From daily drivers..." heading: drop "new trucks"; remove the paragraph under it */
-body = body.replace(
-  'From daily drivers to new trucks to exotics all protected to the CoaticLab standard',
-  'From daily drivers to exotics all protected to the CoaticLab standard'
-);
-body = body.split('<p style="font-family: \'Open Sans\',sans-serif; color: #3A4252; font-size: clamp(13px,1.3vw,15px); line-height: 1.65; margin: 0; max-width: 80ch">Daily drivers, trucks, EVs, and exotics, all protected to one standard. Raptors, Super Dutys, and Broncos to Tesla, Audi, Mercedes, BMW, and beyond.</p>').join('');
-
-/* "Recent builds" subtext */
-body = body.replace(
-  'A look at recent paint protection, ceramic, and tint work, straight from the studio bay and back out on Utah roads.',
-  'A look at recent paint protection film, ceramic coating, and ceramic window film installs, straight from the studio bay and back out on Utah roads'
-);
+/* NOTE: earlier copy/layout tweaks (PPF process copy, quote badges, Family
+   Owned heading + team caption, track-record subtext, "from daily drivers"
+   heading, recent-builds subtext) are now baked into the design export itself,
+   so their overrides were removed to avoid duplicating them. */
 
 /* Instagram: point the 6 tiles at the real post images we downloaded */
 body = body.replace(/(href="https:\/\/www\.instagram\.com\/p\/([A-Za-z0-9_-]+)\/"[^>]*>\s*<img src=")assets\/[A-Za-z0-9._-]+(")/g,

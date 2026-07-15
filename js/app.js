@@ -43,7 +43,7 @@
       p.classList.toggle('is-active', p.getAttribute('data-page') === key);
       if (p.getAttribute('data-page') === key) p.removeAttribute('hidden');
     });
-    if (header) header.setAttribute('data-cl-scroll', key === 'home' ? 'home' : 'none');
+    if (header) header.setAttribute('data-cl-scroll', (key === 'home' || key === 'about' || key === 'contact') ? 'home' : 'none');
     closeMenu();
     sizeCoverFrames();
     setTimeout(sizeCoverFrames, 250);
@@ -79,8 +79,8 @@
     if (act === 'toggle-menu') { e.preventDefault(); toggleMenu(); }
     else if (act === 'play-ppf') { e.preventDefault(); playPpf(); }
     else if (act === 'play-video') { e.preventDefault(); playVideo(t); }
-    else if (act === 'reviews-prev') { e.preventDefault(); moveReviews(-1); }
-    else if (act === 'reviews-next') { e.preventDefault(); moveReviews(1); }
+    else if (act === 'reviews-prev') { e.preventDefault(); moveReviews(-1, t.closest('.dc-reviews')); }
+    else if (act === 'reviews-next') { e.preventDefault(); moveReviews(1, t.closest('.dc-reviews')); }
   });
 
   /* ---------------- PPF flagship video (idle -> sound) ---------------- */
@@ -172,16 +172,15 @@
   }
 
   /* ---------------- reviews carousel ---------------- */
-  var reviewsStart = 0;
   function reviewsPer() { var w = window.innerWidth; return w < 700 ? 1 : (w < 1040 ? 2 : 3); }
-  function renderReviews() {
-    var track = document.querySelector('.dc-reviews-track');
+  function renderReviewsFor(root) {
+    var track = root.querySelector('.dc-reviews-track');
     if (!track) return;
     var cards = track.children;
     var len = cards.length;
     if (!len) return;
     var per = Math.min(reviewsPer(), len);
-    var start = ((reviewsStart % len) + len) % len;
+    var start = (((root._reviewStart || 0) % len) + len) % len;
     var win = [];
     for (var k = 0; k < per; k++) win.push((start + k) % len);
     for (var i = 0; i < len; i++) {
@@ -190,7 +189,12 @@
       else { cards[i].style.display = 'none'; cards[i].style.order = ''; }
     }
   }
-  function moveReviews(dir) { reviewsStart += dir * reviewsPer(); renderReviews(); }
+  function renderReviews() { [].forEach.call(document.querySelectorAll('.dc-reviews'), renderReviewsFor); }
+  function moveReviews(dir, root) {
+    if (!root) return;
+    root._reviewStart = (root._reviewStart || 0) + dir * reviewsPer();
+    renderReviewsFor(root);
+  }
 
   /* ---------------- count-up stat ---------------- */
   function initCountUp() {
