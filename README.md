@@ -33,8 +33,11 @@ Clean URLs are provided by `vercel.json` rewrites; in-page navigation uses
 
 Re-export the project, then for each page file: keep it verbatim **except**
 rewrite the `goto()` `FILES` map to the clean paths (`/ppf`, `/ceramic`, …),
-and on Home apply the two client overrides — force the process video to
-`muted=1` and point the six Instagram tiles at `assets/instagram/<shortcode>.jpg`.
+and on Home apply the client overrides — force the process video to `muted=1`,
+point the six Instagram tiles at `assets/instagram/<shortcode>.jpg`, and set the
+Window Tint service-card video to Vimeo `1210454530` (keep the `background=1&
+autoplay=1&loop=1&muted=1&autopause=0` + `data-cover-frame="1"` form so it fills
+the box borderless like the other cards).
 Copy `support.js`, the component `.dc.html` files, and `assets/`.
 (The scratchpad `setup_mp.py` script automates this.)
 
