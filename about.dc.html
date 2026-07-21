@@ -61,6 +61,10 @@
   .nav-drop .nav-pop{opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;}
   .nav-drop:hover .nav-pop{opacity:1;visibility:visible;transform:none;}
   .nav-drop:hover .nav-drop-trigger{opacity:1;}
+  /* craftsmanship image: natural (uncropped) when stacked, fill the column when side-by-side */
+  @media (min-width:660px){
+    .craft-img{height:100%;object-fit:cover;object-position:center 42%;}
+  }
 </style>
 </helmet>
 <div style="background-color:#F3F3F3;background-image:none;color:#1B2436;font-family:'Open Sans',sans-serif;min-height:100vh;overflow-x:clip;">
@@ -175,9 +179,9 @@
   </section>
 
   <section style="background:#F7F9FB;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:center;">
-      <div style="overflow:hidden;">
-        <img src="assets/team-photo.jpg" alt="The CoaticLab team and family in Clearfield, Utah" style="width:100%;height:auto;object-fit:contain;display:block;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:stretch;">
+      <div class="craft-media" style="overflow:hidden;">
+        <img class="craft-img" src="assets/team-photo.jpg" alt="The CoaticLab team and family in Clearfield, Utah" style="width:100%;height:auto;display:block;">
       </div>
       <div style="display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,88px) clamp(28px,5vw,80px);">
         <h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 840;text-transform:uppercase;letter-spacing:-0.012em;line-height:0.94;margin:0 0 18px;color:#21314d;font-size:clamp(24px,3vw,40px);max-width:22ch;">Built on Craftsmanship, Not Shortcuts</h2>
