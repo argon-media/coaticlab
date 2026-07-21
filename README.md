@@ -47,5 +47,7 @@ Copy `support.js`, the component `.dc.html` files, and `assets/`.
   `coatic-lab.argon-devsite.com` / Vimeo.
 - The "On the Instagram" strip uses the six real @coaticlab post images saved
   under `assets/instagram/` — a snapshot, not a live feed.
-- The team photo on the About/Home family section is still the studio image
-  (`data-team-photo` marker) with a placeholder caption, pending the real photo.
+- The Home family section ("Built on craftsmanship") uses the real team photo
+  `assets/team-photo.jpg`, shown uncropped (natural width/height, no object-fit
+  cover). On re-export, point the `data-team-photo` image at `assets/team-photo.jpg`
+  and render it uncropped. The italic caption is still a placeholder pending copy.
