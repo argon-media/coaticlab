@@ -13,8 +13,20 @@
       "destination": "/tint.dc.html"
     },
     {
+      "source": "/commercial-tint",
+      "destination": "/commercial-tint.dc.html"
+    },
+    {
       "source": "/correction",
       "destination": "/correction.dc.html"
+    },
+    {
+      "source": "/detailing",
+      "destination": "/detailing.dc.html"
+    },
+    {
+      "source": "/trifecta",
+      "destination": "/trifecta.dc.html"
     },
     {
       "source": "/tesla",
@@ -23,6 +35,10 @@
     {
       "source": "/about",
       "destination": "/about.dc.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/projects.dc.html"
     },
     {
       "source": "/gallery",

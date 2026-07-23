@@ -30,15 +30,14 @@
       <span style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#5A6273;">{{ count }} reviews</span>
     </div>
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-      <sc-if value="{{ isCarousel }}" hint-placeholder-val="{{ true }}"><button onClick="{{ prev }}" aria-label="Previous reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M15 5l-7 7 7 7"></path></svg></button></sc-if>
-      <sc-if value="{{ isCarousel }}" hint-placeholder-val="{{ true }}"><button onClick="{{ next }}" aria-label="Next reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M9 5l7 7-7 7"></path></svg></button></sc-if>
+      <button onClick="{{ prev }}" aria-label="Previous reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M15 5l-7 7 7 7"></path></svg></button>
+      <button onClick="{{ next }}" aria-label="Next reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M9 5l7 7-7 7"></path></svg></button>
       <a href="{{ writeUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#21314d;color:#fff;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;box-shadow:0 10px 22px rgba(29,55,108,0.24);" style-hover="background:#15294F;">Write a review</a>
-      <a href="{{ readUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#21314d;border:1px solid #C9D2E0;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;" style-hover="background:#EEF2F8;">Read more</a>
     </div>
   </div>
 
   <div style="margin-top:22px;">
-    <div style="min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;align-items:stretch;">
+    <div style="flex:1;min-width:0;display:flex;gap:18px;">
       <sc-for list="{{ reviewsList }}" as="r" hint-placeholder-count="3">
         <div style="flex:1;min-width:0;background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(14,30,60,0.08);padding:24px;display:flex;flex-direction:column;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
@@ -73,38 +72,24 @@ class Component extends DCLogic {
   componentWillUnmount() { window.removeEventListener('resize', this._r); }
   data() {
     return [
-      { name: 'Brian Dyer', initials: 'BD', meta: 'Local Guide · 12 reviews · 4 photos', date: 'a month ago', text: 'I can\u2019t say enough good things about CoaticLab and especially Blake. From the very beginning, Blake was incredibly patient, knowledgeable, and genuinely invested in helping us find the perfect wrap color for our 1991 Mazda Miata. We went through countless options, comparisons, and ideas, and he never once made us feel rushed or like we were asking too many questions. His attention to detail and willingness to help made the entire process exciting instead of overwhelming.' },
-      { name: 'Jeffrey Gould', initials: 'JG', meta: '1 review · 5 photos', date: '3 months ago', text: 'First time with CoaticLab, Blake answered all my questions. I chose to do the full front PPF, Ceramic Coating level 2 and the Ceramic Window Tint. Blake and his staff did and Outstanding Job. I Highly Recommend them for your automotive needs.' },
-      { name: 'Karson Nilsen', initials: 'KN', img: 'assets/review-karson.png', meta: '4 reviews · 6 photos', date: '5 months ago', text: 'Got the ceramic coating and tint done at Coaticlab and it looks absolutely amazing. My paint honestly looks better than when I bought the car brand new. My mom had her new car coated here first, and after seeing how good hers turned out, I knew I had to do the same when I got mine. Everything turned out perfect and the car looks incredible.' },
-      { name: 'Kara Jean Kelly', initials: 'KK', meta: 'Local Guide · 76 reviews · 32 photos', date: '3 months ago', text: 'I truly can\u2019t say enough great things about my experience with CoaticLab. From the moment I requested a quote to the moment they pulled my vehicle out of the garage, it felt like a red carpet experience. I was genuinely impressed by every step of the process and the way I was treated.' },
-      { name: 'Brad Vorwaller', initials: 'BV', meta: '4 reviews · 3 photos', date: '11 months ago', text: 'Took my daughters 2025 IS350 F Sport to have it ceramic coated, and the wheels and I have to say they knocked it out the park. It far exceeded my expectations. Having it ceramic coated makes the paint pop so much, and has a shine far more than it had before. Blake did an amazing job making sure they got all the details of what I was wanting done, keeping me updated on where they were at with the car, and how to properly maintain the coating to get the most out of it. I highly recommend CoaticLab. Thanks Blake and your team for doing an amazing job.' },
-      { name: 'Braden Beus', initials: 'BB', meta: '4 reviews · 2 photos', date: '6 months ago', text: 'Don\u2019t waste your time and money going to other \u201ccheaper\u201d shops first. Go straight to Coatic Lab where it will get done right every time. These guys do it better. I had to learn the hard way.... Coatic lab had to fix a horrible install I had from another shop. Coatic lab earned my trust and now has a lifetime customer! Thanks guys' },
-      { name: 'Alvin Labog', initials: 'AL', meta: 'Local Guide · 12 reviews · 5 photos', date: '3 months ago', text: 'Coaticlab is awesome fair pricing, legit service, and treats customers the way they should be treated. The quality of work is phenomenal. Can\u2019t say enough good things about what they do! 100% !!!' },
-      { name: 'Antonio Martinez', initials: 'AM', meta: '8 reviews · 1 photo', date: '5 months ago', text: 'Just picked up my Passport and the SUV looks amazing. Blake and his team did an amazing job and got it done pretty fast for everything I had done. I will be a returning customer and would recommend him to anyone looking to have their car tinted, detailed or wrapped' },
-      { name: 'Brian Golden', initials: 'BG', meta: '8 reviews · 1 photo', date: 'a month ago', text: 'Blake is amazing. Called him a couple of months ago for ceramic coating on a new Tiguan, he did such a great job that we called him back after buying a new jeep. My wife decided on PPF and Ceramic coating on her jeep and Blakes attention to detail and willingness to go the extra mile made the project come out perfect. Thank you!!' },
-      { name: 'Mark Lee Earl', initials: 'ME', meta: 'Local Guide · 42 reviews · 419 photos', date: '2 months ago', text: 'I believe that ceramic coating and quality vinyl wrap can add years of protection and luster for your vehicle, so I was really looking for exemplary service and skilled professionalism, which Blake and the Coaticlab team provided with both of my visits. I am delighted at the quality work, easy and superb customer service, and complete automotive knowledge with Coaticlab. My car looks fantastic even after heavy mountain rain storms. Highly recommended, thanks Blake!' },
-      { name: 'Daniel Stephens', initials: 'DS', meta: '14 reviews · 3 photos', date: '2 months ago', text: 'I am so pleased with how my truck turned out. It literally looks like new and even better. Coptic-Lab did a marvelous job coating and protecting my truck. My Ford F150 is ten years old. I take exceptional care of it and therefore it runs like a new. The only thing wrong with the truck has been the paint. It was flaking off all over the truck. I had the paint all taken care of and wanted it to last another ten years at least. I was referred to Coatic-Lab by my son in law who had a full wrap on his new f350. After a couple of years his truck still looks amazing. I am so happy with the results and how it makes my truck look new. If I were to buy another new vehicle I would have it wrapped by these good people. The process was fast, easy, and fun. Dan' }
+      { name: 'Steve Patterson', initials: 'SP', meta: '12 reviews · 5 photos', date: '4 years ago', text: 'Amazing results. Blake and his team did paint correction and ceramic coating on my 2013 Jaguar. Blake is extremely knowledgeable, professional and great to work with. Highly recommend Coatic-Lab for all your automotive detailing needs!' },
+      { name: 'Daniel Altenritter', initials: 'DA', meta: 'Local Guide · 59 reviews · 851 photos', date: '4 years ago', text: 'Blake and his team did a great job on my new Tesla. This is my first new car and the first time getting PPF and ceramic coating on my vehicle as well. This is a great small business that is quickly growing because of their craftmanship and service detailing cars. They were able to fit me in on a tight and busy schedule and I was not disappointed when I picked it up. Great job Blake and thanks!' },
+      { name: 'Robert Johnson', initials: 'RJ', meta: '5 reviews · 5 photos', date: 'Edited 2 years ago', text: 'We took the wife\'s car back for one year maintenance and as before Blake and his team were highly professional and did a great job. A couple days later we took my new Explorer ST in for full ceramic coating inside and out and ceramic tint all around. The finished product is immaculate and the level of attention to detail of Blake and his team is exceptional. Do not think twice, if you need something done, go to Coatic Labs!' },
+      { name: 'Allen Redden', initials: 'AR', meta: 'Local Guide · 18 reviews', date: '2 months ago', text: 'I would like to thank Blake and his staff at Coatic Lab Automotive for doing such a professional job wrapping, ceramic coating, and detailing my Chevy ZR2 pickup. I have had them do my C8 Corvette and my ZL1 Camaro. If anyone needs this kind of service done, I would highly recommend them for the job.' }
     ];
   }
-  renderVals() {
+    renderVals() {
     const all = this.data();
     const per = this.state.w < 700 ? 1 : (this.state.w < 1040 ? 2 : 3);
     const len = all.length;
-    const isGrid = this.props.layout === 'grid';
     const start = ((this.state.start % len) + len) % len;
     const visible = [];
-    if (isGrid) {
-      all.forEach(rr => visible.push(Object.assign({}, rr, { noImg: !rr.img })));
-    } else {
-      for (let k = 0; k < Math.min(per, len); k++) { const rr = all[(start + k) % len]; visible.push(Object.assign({}, rr, { noImg: !rr.img })); }
-    }
+    for (let k = 0; k < Math.min(per, len); k++) { const rr = all[(start + k) % len]; visible.push(Object.assign({}, rr, { noImg: !rr.img })); }
     return {
       rating: this.props.rating ?? '5.0',
       count: this.props.count ?? '360+',
       writeUrl: this.props.writeUrl ?? 'https://search.google.com/local/reviews?placeid=ChIJ5SUPzJ4BU4cRmS7cZqw0N40',
-      readUrl: this.props.readUrl ?? 'https://www.google.com/maps/place/CoaticLab/@41.0897336,-112.0327797,17z/data=!4m18!1m9!3m8!1s0x8753019ecc0f25e5:0x8d3734ac66dc2e99!2sCoaticLab!8m2!3d41.0897336!4d-112.0327797!9m1!1b1!16s%2Fg%2F11h287xpx0!3m7!1s0x8753019ecc0f25e5:0x8d3734ac66dc2e99!8m2!3d41.0897336!4d-112.0327797!9m1!1b1!16s%2Fg%2F11h287xpx0?entry=ttu',
       reviewsList: visible,
-      isCarousel: !isGrid,
       next: () => this.setState(s => ({ start: s.start + per })),
       prev: () => this.setState(s => ({ start: s.start - per }))
     };

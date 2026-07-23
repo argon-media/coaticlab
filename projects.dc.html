@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,100..900&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Open+Sans:wght@400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<title>Reviews | CoaticLab Automotive Studio, Clearfield UT</title>
-<meta name="description" content="See what drivers across Northern Utah say about CoaticLab. 5.0 rating, 360+ Google reviews, and real customer stories.">
+<title>PPF, Ceramic Coating &amp; Window Tint | CoaticLab, Clearfield UT</title>
+<meta name="description" content="Gyeon-certified paint protection film, ceramic coatings, and window tint for new and high-value vehicles in Clearfield and across Northern Utah. Get a quote.">
 <style>
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -54,9 +54,6 @@
   @keyframes tlPopU{from{opacity:0;transform:scale(.3);}to{opacity:1;transform:scale(1);}}
   @keyframes tlRiseU{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
   @media (prefers-reduced-motion: reduce){.tlrail-line,.tlrail-node,.tlrail-card{animation:none !important;opacity:1 !important;transform:none !important;}}
-  @keyframes dragNudge{0%,100%{transform:translateX(0);}50%{transform:translateX(7px);}}
-  .drag-cue{animation:dragNudge 1.2s ease-in-out infinite;}
-  @media (prefers-reduced-motion: reduce){.drag-cue{animation:none;}}
 
   .nav-drop .nav-pop{opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;}
   .nav-drop:hover .nav-pop{opacity:1;visibility:visible;transform:none;}
@@ -106,28 +103,65 @@
   </header>
 
   <main style="display:block;">
-    <sc-if value="{{ isReviews }}">
-<div style="animation:cl-fade .5s ease;"><section style="position:relative;min-height:clamp(460px,64vh,620px);margin-top:-96px;background:#0C0D10;overflow:hidden;display:flex;"><img src="assets/rwb-event.jpg" alt="CoaticLab customers and their vehicles in Clearfield, Utah" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;"><div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,0.66) 0%,rgba(6,10,20,0.4) 46%,rgba(6,10,20,0.84) 100%);"></div><span class="gloss-flash" style="position:absolute;top:-20%;left:0;width:55%;height:140%;pointer-events:none;z-index:1;background:linear-gradient(115deg, transparent 38%, rgba(255,255,255,.18) 48%, rgba(255,255,255,.04) 54%, transparent 66%);"></span><div style="position:relative;width:100%;max-width:1000px;margin:0 auto;padding:150px 36px 64px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;"><h1 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 850;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.86;margin:0;color:#fff;font-size:clamp(32px,5.6vw,66px);">Don't Take Our Word For It</h1><p style="font-family:'Open Sans',sans-serif;color:#DCE3F0;font-size:clamp(15px,1.6vw,20px);line-height:1.6;margin:22px auto 0;max-width:58ch;">Hundreds of drivers across Northern Utah have trusted us with their vehicles. Here is what they have to say.</p></div></section><section style="background:#fff;padding:clamp(52px,7vw,96px) 0;"><div style="max-width:1360px;margin:0 auto;padding:0 36px;"><div style="max-width:60ch;margin-bottom:clamp(32px,4vw,48px);"><p style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.2em;font-size:12px;color:#6E7585;margin:0 0 14px;display:none;">Customer Story</p><h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 840;text-transform:uppercase;letter-spacing:-0.012em;line-height:0.98;margin:0;color:#21314d;font-size:clamp(22px,3vw,38px);">“I Wouldn't Trust Anybody Else With My Cars.”</h2></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,4vw,56px);align-items:start;"><div><div onClick="{{ playVideo }}" style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0C0D10;cursor:pointer;"><sc-if value="{{ videoPlaying }}" hint-placeholder-val="{{ false }}"><iframe src="https://www.youtube.com/embed/l-B3o0M34-o?autoplay=1&rel=0" title="Connor talks about his experience with CoaticLab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe></sc-if><sc-if value="{{ videoStopped }}" hint-placeholder-val="{{ true }}"><img src="https://img.youtube.com/vi/l-B3o0M34-o/maxresdefault.jpg" alt="Connor talks about his experience with CoaticLab" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.82;"><span style="position:absolute;inset:0;margin:auto;width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,0.4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="#15233F"><path d="M8 5v14l11-7z"></path></svg></span></sc-if></div><p style="font-family:'Open Sans',sans-serif;color:#6E7585;font-size:13.5px;margin:14px 0 0;">Connor, CoaticLab customer since 2022.</p></div><div><p style="font-family:'Open Sans',sans-serif;color:#1B2436;font-size:clamp(15px,1.5vw,17px);line-height:1.72;margin:0 0 16px;">Connor has been bringing his vehicles to CoaticLab since 2022. Four years, multiple cars and trucks, and he still will not take them anywhere else. For him it comes down to the customer service, the attention to detail, and the products we put on the car, which give him full confidence every time.</p><p style="font-family:'Open Sans',sans-serif;color:#1B2436;font-size:clamp(15px,1.5vw,17px);line-height:1.72;margin:0 0 24px;">His cars are his investments and his pride and joy, and he trusts us with them. That is the highest compliment a shop like ours can get, and it is the standard we hold ourselves to on every vehicle that comes through the door.</p><blockquote style="margin:0;border-left:4px solid #21314d;padding-left:22px;"><p style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112,'wght' 620;font-size:clamp(17px,1.8vw,21px);line-height:1.34;color:#21314d;margin:0 0 12px;">“I wouldn't trust anybody else to work on my investments, my cars, my pride and joy.”</p><cite style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.2em;font-size:12px;color:#6E7585;font-style:normal;font-size:11px;">Connor, customer since 2022</cite></blockquote></div></div></div></section><section style="background:#F7F9FB;padding:clamp(52px,7vw,90px) 0;"><div style="max-width:1360px;margin:0 auto;padding:0 36px;"><h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 840;text-transform:uppercase;letter-spacing:-0.012em;line-height:0.94;margin:0 0 12px;color:#21314d;font-size:clamp(24px,3vw,40px);">Trusted Across Northern Utah</h2><p style="font-family:'Open Sans',sans-serif;color:#3A4252;font-size:clamp(13px,1.3vw,15px);line-height:1.6;margin:0;max-width:60ch;">5.0 rating. 360+ five-star reviews. Read them yourself.</p><div style="margin-top:clamp(28px,3.5vw,44px);"><dc-import name="GoogleReviews" layout="grid" rating="5.0" count="360+" write-url="https://search.google.com/local/reviews?placeid=ChIJ5SUPzJ4BU4cRmS7cZqw0N40" style="display:block;width:100%;" hint-size="100%,900px"></dc-import></div></div></section>
-<section style="background:#fff;padding:clamp(56px,8vw,100px) 0 0;">
-    <div style="max-width:1360px;margin:0 auto;padding:0 36px;">
-      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px;">
-        <h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 122,'wght' 840;text-transform:uppercase;letter-spacing:-0.01em;line-height:1;margin:0;color:#15233F;font-size:clamp(22px,2.6vw,38px);">On Instagram · <span style="color:#21314d;">@coaticlab</span></h2>
-        <a href="https://www.instagram.com/coaticlab/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:linear-gradient(45deg,#feda75 0%,#fa7e1e 25%,#d62976 50%,#962fbf 75%,#4f5bd5 100%);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13px;padding:14px 28px;text-decoration:none;transition:all .18s;" style-hover="filter:brightness(1.08);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"></circle></svg>Follow</a>
+    <sc-if value="{{ isProjects }}">
+<div style="animation:cl-fade .5s ease;">
+  <section style="position:relative;min-height:clamp(560px,86vh,780px);margin-top:-96px;background:#0C0D10;overflow:hidden;display:flex;">
+    <img src="assets/gallery-hero.jpg" alt="A black Lamborghini Revuelto at sunset on the Utah salt flats" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,0.62) 0%,rgba(6,10,20,0.34) 46%,rgba(6,10,20,0.84) 100%);"></div>
+    <span class="gloss-flash" style="position:absolute;top:-20%;left:0;width:55%;height:140%;pointer-events:none;z-index:1;background:linear-gradient(115deg, transparent 38%, rgba(255,255,255,.18) 48%, rgba(255,255,255,.04) 54%, transparent 66%);"></span>
+    <div style="position:relative;width:100%;max-width:1000px;margin:0 auto;padding:150px 36px 64px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;">
+      <h1 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 850;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.86;margin:0;color:#fff;font-size:clamp(32px,5.6vw,66px);">Real Builds,<br>Real Vehicles</h1>
+      <p style="font-family:'Open Sans',sans-serif;color:#DCE3F0;font-size:clamp(15px,1.6vw,20px);line-height:1.6;margin:22px auto 0;max-width:60ch;">A closer look at the vehicles we have protected, from daily drivers to exotics. Every build done to one standard.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:clamp(26px,3.5vw,36px);">
+        <a href="#" onClick="{{ nav.contact }}" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#15233F;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:15px 30px;text-decoration:none;transition:all .18s;" style-hover="background:#EAF0F8;transform:translateY(-2px);">Get a Quote</a>
+        <a href="tel:+13852896267" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:14px 28px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.5);transition:all .18s;" style-hover="border-color:#fff;background:rgba(255,255,255,0.16);">Call (385) 289-6267</a>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0;">
-        <a href="https://www.instagram.com/p/DaOPgoXyYIu/" target="_blank" rel="noopener" style="display:block;overflow:hidden;aspect-ratio:1;"><img src="assets/ppf-corvette-hood.jpg" alt="CoaticLab build" style="width:100%;height:100%;object-fit:cover;transition:transform .3s;" style-hover="transform:scale(1.05);"></a>
-        <a href="https://www.instagram.com/p/DaD2byKmdS3/" target="_blank" rel="noopener" style="display:block;overflow:hidden;aspect-ratio:1;"><img src="assets/porsche-993-red.jpg" alt="CoaticLab build" style="width:100%;height:100%;object-fit:cover;transition:transform .3s;" style-hover="transform:scale(1.05);"></a>
-        <a href="https://www.instagram.com/p/DZ8I9ZCRc7Y/" target="_blank" rel="noopener" style="display:block;overflow:hidden;aspect-ratio:1;"><img src="assets/gr-corolla-rear.jpg" alt="CoaticLab build" style="width:100%;height:100%;object-fit:cover;transition:transform .3s;" style-hover="transform:scale(1.05);"></a>
-        <a href="https://www.instagram.com/p/DZx0dZTEbUb/" target="_blank" rel="noopener" style="display:block;overflow:hidden;aspect-ratio:1;"><img src="assets/bmw-e30-pickup.jpg" alt="CoaticLab build" style="width:100%;height:100%;object-fit:cover;transition:transform .3s;" style-hover="transform:scale(1.05);"></a>
-        <a href="https://www.instagram.com/p/DZvQN8tI6m3/" target="_blank" rel="noopener" style="display:block;overflow:hidden;aspect-ratio:1;"><img src="assets/rwb-event.jpg" alt="CoaticLab build" style="width:100%;height:100%;object-fit:cover;transition:transform .3s;" style-hover="transform:scale(1.05);"></a>
-        <a href="https://www.instagram.com/p/DZqNfxsI1rc/" target="_blank" rel="noopener" style="display:block;overflow:hidden;aspect-ratio:1;"><img src="assets/ppf-corvette-side.jpg" alt="CoaticLab build" style="width:100%;height:100%;object-fit:cover;transition:transform .3s;" style-hover="transform:scale(1.05);"></a>
+  </section>
+  <section style="background:#F7F9FB;padding:clamp(52px,7vw,90px) 0;">
+    <div style="max-width:1360px;margin:0 auto;padding:0 36px;">
+      <div style="margin-bottom:clamp(22px,3vw,30px);"><h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 840;text-transform:uppercase;letter-spacing:-0.012em;line-height:0.94;color:#21314d;font-size:clamp(24px,3vw,40px);margin:0 0 12px;">Browse Our Work</h2><p style="font-family:'Open Sans',sans-serif;color:#3A4252;font-size:clamp(14px,1.35vw,16px);line-height:1.6;margin:0;max-width:60ch;">Filter by service or scroll the full lineup. Click any build to see the full set.</p></div>
+      <div style="background:#0E1E3C;border-radius:12px;padding:12px;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px;">
+        <sc-for list="{{ projFilterBtns }}" as="f" hint-placeholder-count="6"><button onClick="{{ f.on }}" style="{{ f.style }}">{{ f.label }}</button></sc-for>
       </div>
+      <sc-if value="{{ projectsEmpty }}"><p style="font-family:'Open Sans',sans-serif;color:#3A4252;font-size:15px;padding:20px 0;">No builds in this category yet.</p></sc-if>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;">
+        <sc-for list="{{ filteredProjects }}" as="p" hint-placeholder-count="6">
+          <figure onClick="{{ p.open }}" class="proj-card" style="margin:0;cursor:pointer;background:#fff;box-shadow:0 14px 34px rgba(14,30,60,0.09);overflow:hidden;display:flex;flex-direction:column;">
+            <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#0C0D10;"><div style="{{ p.boxStyle }}"></div>
+              <sc-if value="{{ p.featured }}"><span style="position:absolute;top:14px;left:14px;background:#fff;color:#15233F;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.12em;font-size:10px;padding:6px 11px;">Featured</span></sc-if>
+              <span style="position:absolute;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:7px;background:rgba(6,10,20,0.72);color:#fff;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;font-size:10px;padding:7px 12px;">{{ p.count }} Photos</span>
+            </div>
+            <div style="padding:clamp(22px,2.6vw,28px);display:flex;flex-direction:column;flex:1;">
+              <h3 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118,'wght' 780;text-transform:uppercase;letter-spacing:0;font-size:clamp(18px,2vw,22px);color:#21314d;margin:0 0 12px;line-height:1.05;">{{ p.name }}</h3>
+              <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;"><sc-for list="{{ p.tags }}" as="tg" hint-placeholder-count="2"><span style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.06em;font-size:10.5px;color:#15233F;background:#EEF2F7;padding:5px 10px;">{{ tg }}</span></sc-for></div>
+              <p style="font-family:'Open Sans',sans-serif;color:#3A4252;font-size:14px;line-height:1.6;margin:0 auto 0 0;">{{ p.line }}</p>
+            </div>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+    <section style="background:#F7F9FB;padding:clamp(52px,7vw,90px) 0;">
+    <div style="max-width:1360px;margin:0 auto;padding:0 36px;"><h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 840;text-transform:uppercase;letter-spacing:-0.012em;line-height:0.94;color:#21314d;font-size:clamp(24px,3vw,40px);margin:0 0 12px;">Trusted Across Northern Utah</h2><p style="font-family:'Open Sans',sans-serif;color:#3A4252;font-size:clamp(13px,1.3vw,15px);line-height:1.6;margin:0;max-width:64ch;">5.0 rating. 360+ five-star reviews.</p><div style="margin-top:clamp(28px,3.5vw,44px);"><dc-import name="GoogleReviews" rating="5.0" count="360+" write-url="https://search.google.com/local/reviews?placeid=ChIJ5SUPzJ4BU4cRmS7cZqw0N40" style="display:block;width:100%;" hint-size="100%,420px"></dc-import></div></div>
   </section>
   <section style="background:linear-gradient(180deg,#173461 0%,#0F2347 100%);color:#fff;padding:clamp(64px,9vw,116px) 0;">
-    <div style="max-width:1360px;margin:0 auto;padding:0 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(36px,5vw,68px);align-items:center;"><div><div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:7px 14px;margin-bottom:22px;"><span style="display:inline-flex;gap:1px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg></span><span style="font-family:'Open Sans',sans-serif;font-size:13px;color:#fff;font-weight:600;">5.0 · 360+ Google reviews</span></div><h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 850;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.9;margin:0 0 20px;color:#fff;font-size:clamp(28px,3.6vw,52px);">Ready to protect<br>your vehicle?</h2><p style="font-family:'Open Sans',sans-serif;color:#C7D2E8;font-size:clamp(13px,1.3vw,15px);line-height:1.62;margin:0 0 28px;max-width:46ch;">Tell us about your vehicle and we will send a custom quote. No pressure, no spam.</p><div style="display:flex;flex-direction:column;gap:13px;"><div style="display:flex;align-items:center;gap:11px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9BD6" stroke-width="2.5"><path d="M5 12l5 5L20 6"></path></svg><span style="font-family:'Open Sans',sans-serif;color:#C7D2E8;font-size:15px;">Quick Response</span></div><div style="display:flex;align-items:center;gap:11px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9BD6" stroke-width="2.5"><path d="M5 12l5 5L20 6"></path></svg><span style="font-family:'Open Sans',sans-serif;color:#C7D2E8;font-size:15px;">Gyeon-certified, no corners cut</span></div><div style="display:flex;align-items:center;gap:11px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9BD6" stroke-width="2.5"><path d="M5 12l5 5L20 6"></path></svg><span style="font-family:'Open Sans',sans-serif;color:#C7D2E8;font-size:15px;">Honest, transparent quotes</span></div><div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(22px,3.5vw,40px);margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.14);"><span style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.16em;font-size:10.5px;color:#7E90B6;width:100%;margin-bottom:-6px;">Certified &amp; trained</span><img src="assets/cert-gyeon-trim.png" alt="Gyeon" style="height:26px;filter:brightness(0) invert(1);opacity:0.82;"><img src="assets/cert-llumar-trim.png" alt="LLumar" style="height:34px;filter:brightness(0) invert(1);opacity:0.82;"><img src="assets/cert-suntek-trim.png" alt="SunTek" style="height:30px;filter:brightness(0) invert(1);opacity:0.82;"><img src="assets/cert-windshield-trim.png" alt="Windshield Skin" style="height:24px;filter:brightness(0) invert(1);opacity:0.82;"></div><div style="display:flex;align-items:center;gap:16px;margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.14);"><div style="display:flex;flex-shrink:0;"><div style="width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.35);"><img src="assets/team-founder.jpg" alt="Blake, founder" style="width:100%;height:100%;object-fit:cover;"></div><div style="width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.35);margin-left:-14px;"><img src="assets/team-ppf.jpg" alt="CoaticLab crew" style="width:100%;height:100%;object-fit:cover;"></div><div style="width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.35);margin-left:-14px;"><img src="assets/team-tint.jpg" alt="CoaticLab crew" style="width:100%;height:100%;object-fit:cover;"></div><div style="width:52px;height:52px;border-radius:50%;border:2px solid #fff;margin-left:-14px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:12px;color:#C7D2E8;">+2</div></div><div><p style="font-family:'Open Sans',sans-serif;font-weight:700;font-size:13.5px;color:#fff;margin:0 0 3px;">The crew behind your build</p><p style="font-family:'Open Sans',sans-serif;font-size:12.5px;line-height:1.45;color:#B9C4DC;margin:0;max-width:44ch;">Family owned - the same hands that quote your car are the ones that protect it.</p></div></div></div></div><form onSubmit="{{ onSubmit }}" style="background:#fff;border-radius:18px;padding:clamp(26px,3vw,40px);box-shadow:0 28px 64px rgba(0,0,0,0.3);"><h3 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 122,'wght' 840;text-transform:uppercase;letter-spacing:-0.01em;color:#21314d;font-size:clamp(22px,2.4vw,30px);margin:0 0 6px;">Request a quote</h3><p style="font-family:'Open Sans',sans-serif;color:#6E7585;font-size:14px;margin:0 0 22px;">Takes about 30 seconds. We read every one.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:16px;"><div><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Full Name</label><input type="text" placeholder="Your name" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;"></div><div><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Phone Number</label><input type="tel" placeholder="(385) 555-0123" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;"></div></div><div style="margin-bottom:16px;"><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Email Address</label><input type="email" placeholder="you@email.com" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;"></div><div style="margin-bottom:16px;"><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Vehicle (Year / Make / Model)</label><input type="text" placeholder="2024 Tesla Model Y" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;"></div><div style="margin-bottom:16px;"><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:9px;display:block;">What are you interested in? <span style="text-transform:none;letter-spacing:0;color:#9AA0AD;font-family:'Open Sans',sans-serif;">(select all that apply)</span></label><div style="display:flex;flex-wrap:wrap;gap:8px;"><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Paint Protection Film" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Paint Protection Film</label><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Ceramic Coating" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Ceramic Coating</label><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Window Tint" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Window Tint</label><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Commercial Tint" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Commercial Tint</label><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Paint Correction" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Paint Correction</label></div></div><div style="margin-bottom:22px;"><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Anything else we should know? (optional)</label><textarea rows="3" placeholder="Garage kept, new car, prior coatings, timing needs…" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;resize:vertical;"></textarea></div><button type="submit" style="width:100%;justify-content:center;display:inline-flex;align-items:center;gap:10px;background:#21314d;color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:14px;padding:17px;border:0;cursor:pointer;transition:background .18s;" style-hover="background:#15294F;">Send My Request</button><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px;"><span style="display:inline-flex;align-items:center;gap:7px;font-family:'Open Sans',sans-serif;font-size:13px;color:#3A4252;font-weight:600;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M5 12l5 5L20 6"></path></svg>Quick Response</span><span style="display:inline-flex;align-items:center;gap:7px;font-family:'Open Sans',sans-serif;font-size:13px;color:#3A4252;font-weight:600;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M5 12l5 5L20 6"></path></svg>Licensed &amp; insured</span></div><p style="text-align:center;margin:14px 0 0;font-family:'Open Sans',sans-serif;font-size:14px;color:#6E7585;">Prefer to talk? <a href="tel:+13852896267" style="color:#21314d;font-weight:700;text-decoration:none;">Call 385-289-6267</a></p></form></div>
+    <div style="max-width:1360px;margin:0 auto;padding:0 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(36px,5vw,68px);align-items:center;"><div><div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:7px 14px;margin-bottom:22px;"><span style="display:inline-flex;gap:1px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"></path></svg></span><span style="font-family:'Open Sans',sans-serif;font-size:13px;color:#fff;font-weight:600;">5.0 · 360+ Google reviews</span></div><h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 850;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.9;margin:0 0 20px;color:#fff;font-size:clamp(28px,3.6vw,52px);">Want your vehicle<br>in here?</h2><p style="font-family:'Open Sans',sans-serif;color:#C7D2E8;font-size:clamp(13px,1.3vw,15px);line-height:1.62;margin:0 0 28px;max-width:46ch;">Tell us what you drive and what you want to protect. We will send a custom quote.</p><div style="display:flex;flex-direction:column;gap:13px;"><div style="display:flex;align-items:center;gap:11px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9BD6" stroke-width="2.5"><path d="M5 12l5 5L20 6"></path></svg><span style="font-family:'Open Sans',sans-serif;color:#C7D2E8;font-size:15px;">Quick Response</span></div><div style="display:flex;align-items:center;gap:11px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9BD6" stroke-width="2.5"><path d="M5 12l5 5L20 6"></path></svg><span style="font-family:'Open Sans',sans-serif;color:#C7D2E8;font-size:15px;">Gyeon-certified, no corners cut</span></div><div style="display:flex;align-items:center;gap:11px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9BD6" stroke-width="2.5"><path d="M5 12l5 5L20 6"></path></svg><span style="font-family:'Open Sans',sans-serif;color:#C7D2E8;font-size:15px;">Honest, transparent quotes</span></div><div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(22px,3.5vw,40px);margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.14);"><span style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.16em;font-size:10.5px;color:#7E90B6;width:100%;margin-bottom:-6px;">Certified &amp; trained</span><img src="assets/cert-gyeon-trim.png" alt="Gyeon" style="height:26px;filter:brightness(0) invert(1);opacity:0.82;"><img src="assets/cert-llumar-trim.png" alt="LLumar" style="height:34px;filter:brightness(0) invert(1);opacity:0.82;"><img src="assets/cert-suntek-trim.png" alt="SunTek" style="height:30px;filter:brightness(0) invert(1);opacity:0.82;"><img src="assets/cert-windshield-trim.png" alt="Windshield Skin" style="height:24px;filter:brightness(0) invert(1);opacity:0.82;"></div><div style="display:flex;align-items:center;gap:16px;margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.14);"><div style="display:flex;flex-shrink:0;"><div style="width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.35);"><img src="assets/team-founder.jpg" alt="Blake, founder" style="width:100%;height:100%;object-fit:cover;"></div><div style="width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.35);margin-left:-14px;"><img src="assets/team-ppf.jpg" alt="CoaticLab crew" style="width:100%;height:100%;object-fit:cover;"></div><div style="width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.35);margin-left:-14px;"><img src="assets/team-tint.jpg" alt="CoaticLab crew" style="width:100%;height:100%;object-fit:cover;"></div><div style="width:52px;height:52px;border-radius:50%;border:2px solid #fff;margin-left:-14px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:12px;color:#C7D2E8;">+2</div></div><div><p style="font-family:'Open Sans',sans-serif;font-weight:700;font-size:13.5px;color:#fff;margin:0 0 3px;">The crew behind your build</p><p style="font-family:'Open Sans',sans-serif;font-size:12.5px;line-height:1.45;color:#B9C4DC;margin:0;max-width:44ch;">Family owned - the same hands that quote your car are the ones that protect it.</p></div></div></div></div><form onSubmit="{{ onSubmit }}" style="background:#fff;border-radius:18px;padding:clamp(26px,3vw,40px);box-shadow:0 28px 64px rgba(0,0,0,0.3);"><h3 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 122,'wght' 840;text-transform:uppercase;letter-spacing:-0.01em;color:#21314d;font-size:clamp(22px,2.4vw,30px);margin:0 0 6px;">Request a quote</h3><p style="font-family:'Open Sans',sans-serif;color:#6E7585;font-size:14px;margin:0 0 22px;">Takes about 30 seconds. We read every one.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:16px;"><div><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Full Name</label><input type="text" placeholder="Your name" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;"></div><div><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Phone Number</label><input type="tel" placeholder="(385) 555-0123" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;"></div></div><div style="margin-bottom:16px;"><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Email Address</label><input type="email" placeholder="you@email.com" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;"></div><div style="margin-bottom:16px;"><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Vehicle (Year / Make / Model)</label><input type="text" placeholder="2024 Tesla Model Y" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;"></div><div style="margin-bottom:16px;"><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:9px;display:block;">What are you interested in? <span style="text-transform:none;letter-spacing:0;color:#9AA0AD;font-family:'Open Sans',sans-serif;">(select all that apply)</span></label><div style="display:flex;flex-wrap:wrap;gap:8px;"><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Paint Protection Film" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Paint Protection Film</label><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Ceramic Coating" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Ceramic Coating</label><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Window Tint" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Window Tint</label><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Commercial Tint" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Commercial Tint</label><label style="display:inline-flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#15233F;cursor:pointer;border:1px solid #D9DEE6;border-radius:8px;padding:9px 13px;background:#F7F9FB;"><input type="checkbox" name="interest" value="Paint Correction" style="width:15px;height:15px;accent-color:#21314d;flex:none;">Paint Correction</label></div></div><div style="margin-bottom:22px;"><label style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;color:#6E7585;margin-bottom:7px;display:block;">Anything else we should know? (optional)</label><textarea rows="3" placeholder="Garage kept, new car, prior coatings, timing needs…" style="width:100%;box-sizing:border-box;font-family:'Open Sans',sans-serif;border:1px solid #D9DEE6;border-radius:8px;background:#F7F9FB;font-size:15px;color:#15233F;padding:13px 14px;outline:none;resize:vertical;"></textarea></div><button type="submit" style="width:100%;justify-content:center;display:inline-flex;align-items:center;gap:10px;background:#21314d;color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:14px;padding:17px;border:0;cursor:pointer;transition:background .18s;" style-hover="background:#15294F;">Send My Request</button><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px;"><span style="display:inline-flex;align-items:center;gap:7px;font-family:'Open Sans',sans-serif;font-size:13px;color:#3A4252;font-weight:600;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M5 12l5 5L20 6"></path></svg>Quick Response</span><span style="display:inline-flex;align-items:center;gap:7px;font-family:'Open Sans',sans-serif;font-size:13px;color:#3A4252;font-weight:600;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M5 12l5 5L20 6"></path></svg>Licensed &amp; insured</span></div><p style="text-align:center;margin:14px 0 0;font-family:'Open Sans',sans-serif;font-size:14px;color:#6E7585;">Prefer to talk? <a href="tel:+13852896267" style="color:#21314d;font-weight:700;text-decoration:none;">Call 385-289-6267</a></p></form></div>
   </section>
 </div>
+<sc-if value="{{ lightboxOpen }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:500;background:rgba(6,10,20,0.92);overflow-y:auto;padding:clamp(20px,4vw,56px);">
+      <div style="max-width:1200px;margin:0 auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;padding:6px 0 18px;">
+          <h3 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118,'wght' 780;text-transform:uppercase;font-size:clamp(18px,2.4vw,26px);color:#fff;margin:0;">{{ lightboxName }}</h3>
+          <button onClick="{{ closeLightbox }}" aria-label="Close" style="flex-shrink:0;width:44px;height:44px;border:1px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;">✕</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;">
+          <sc-for list="{{ lightboxImages }}" as="im" hint-placeholder-count="4"><div style="aspect-ratio:4/5;overflow:hidden;background:#12151C;background-image:url({{ im.src }});background-size:cover;background-position:center;"></div></sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
 </sc-if>
   </main>
 
@@ -184,16 +218,17 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-var __PAGE__ = 'reviews';
+var __PAGE__ = 'projects';
 class Component extends DCLogic {
   state = {
     page: __PAGE__,
     menuOpen: false,
     w: (typeof window !== 'undefined' ? window.innerWidth : 1200),
     galleryFilter: 'All',
+    projectFilter: 'All',
+    activeProject: null,
     trifTab: 0,
     ppfPlaying: false,
-    videoPlaying: false,
     submitted: false,
     scrolled: false,
     introPlaying: (function () {
@@ -205,27 +240,6 @@ class Component extends DCLogic {
     })()
   };
   componentDidMount() {
-    var self = this;
-    this._dragSc = null;
-    document.addEventListener('pointerdown', function (e) {
-      var sc = e.target.closest && e.target.closest('[data-film]');
-      if (!sc || sc.scrollWidth <= sc.clientWidth + 4) return;
-      self._dragSc = { sc: sc, sx: e.clientX, sl: sc.scrollLeft };
-      sc.style.cursor = 'grabbing';
-    });
-    document.addEventListener('pointermove', function (e) {
-      var d = self._dragSc; if (!d) return;
-      var dx = e.clientX - d.sx; if (Math.abs(dx) > 3) d.sc._dragMoved = true;
-      d.sc.scrollLeft = d.sl - dx;
-    });
-    document.addEventListener('pointerup', function () {
-      var d = self._dragSc; if (!d) return; d.sc.style.cursor = 'grab'; self._dragSc = null;
-      var s = d.sc; setTimeout(function () { s._dragMoved = false; }, 30);
-    });
-    document.addEventListener('click', function (e) {
-      var sc = e.target.closest && e.target.closest('[data-film]');
-      if (sc && sc._dragMoved) { e.preventDefault(); e.stopPropagation(); }
-    }, true);
     this._onResize = () => this.setState({ w: window.innerWidth });
     window.addEventListener('resize', this._onResize);
     this._onHash = () => {};
@@ -304,7 +318,7 @@ class Component extends DCLogic {
         document.querySelectorAll('video[data-bgloop]').forEach((v) => {
           if (v.dataset.bgloopInit) return;
           v.dataset.bgloopInit = '1';
-          v.muted = true; v.loop = true;
+          v.muted = true; v.loop = true; if (v.getAttribute('data-controls')) v.controls = true;
           v.setAttribute('src', v.getAttribute('data-bgloop'));
           const p = v.play(); if (p && p.catch) p.catch(() => {});
         });
@@ -336,10 +350,10 @@ class Component extends DCLogic {
   filterStyle(active) {
     return {
       fontFamily: "'DM Mono',monospace", textTransform: 'uppercase', letterSpacing: '0.1em',
-      fontSize: '11.5px', padding: '10px 17px', borderRadius: '2px', cursor: 'pointer',
-      border: '1px solid ' + (active ? '#21314d' : '#C7C5BC'),
-      background: active ? '#21314d' : 'transparent',
-      color: active ? '#FFFFFF' : '#1B2436'
+      fontSize: '11px', padding: '9px 16px', borderRadius: '8px', cursor: 'pointer',
+      border: '0',
+      background: active ? '#FFFFFF' : 'transparent',
+      color: active ? '#15233F' : '#C7D2E8'
     };
   }
   renderVals() {
@@ -404,15 +418,111 @@ class Component extends DCLogic {
     };
 
     const galleryAll = [
-      { src: 'assets/ppf-corvette-hood.jpg', label: 'C8 Corvette / Full Front PPF', cats: ['PPF'] },
-      { src: 'assets/ppf-corvette-side.jpg', label: 'C8 Corvette / Side PPF', cats: ['PPF'] },
-      { src: 'assets/porsche-993-red.jpg', label: 'Porsche 993 / Ceramic Coating', cats: ['Ceramic','Detail'] },
-      { src: 'assets/gr-corolla-fender.jpg', label: 'GR Corolla / Ceramic + Detail', cats: ['Ceramic','Detail'] },
-      { src: 'assets/gr-corolla-rear.jpg', label: 'GR Corolla / Full Detail', cats: ['Detail'] },
-      { src: 'assets/bmw-e30-pickup.jpg', label: 'BMW E30 / Ceramic Coating', cats: ['Ceramic','Detail'] },
-      { src: 'assets/bmw-e30-wheel.jpg', label: 'BMW E30 / Wheel Detail', cats: ['Detail'] },
-      { src: 'assets/rwb-event.jpg', label: 'RWB Porsche / CoaticLab Meet', cats: ['Detail'] }
+      { src: 'assets/tint-1.jpg', label: 'Porsche 992 Carrera GTS in red. Ceramic window tint.', cats: ['Window Tint'] },
+      { src: 'assets/tint-2.jpg', label: 'Porsche 992 GT3 in Ruby Star. Ceramic window tint.', cats: ['Window Tint'] },
+      { src: 'assets/ppf-1.jpg', label: 'Toyota GR Corolla. Ceramic-coat finishing.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-2.jpg', label: 'Corvette. Front bumper PPF wet-install.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-3.jpg', label: 'Corvette. Hood and splitter PPF.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-4.jpg', label: 'Toyota GR Corolla. Hood finish.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-5.jpg', label: 'Toyota GR Corolla. Fender wipe-down.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-6.jpg', label: 'Toyota GR Corolla. Rear glass finish.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-7.jpg', label: 'Corvette. Rocker panel PPF.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-8.jpg', label: 'Toyota GR Corolla. Studio front three-quarter.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-9.jpg', label: 'Toyota GR Corolla. GR grille badge.', cats: ['Paint Protection Film'] },
+      { src: 'assets/ppf-10.jpg', label: 'Toyota GR Corolla. Fender and wheel.', cats: ['Paint Protection Film'] },
+      { src: 'assets/truck-1.jpg', label: 'BMW E30 325i pickup. Front three-quarter.', cats: ['BMW Truck'] },
+      { src: 'assets/truck-2.jpg', label: 'BMW E30 325i pickup. Front end at the studio.', cats: ['BMW Truck'] },
+      { src: 'assets/truck-3.jpg', label: 'BMW E30 pickup. 325it badge and taillight.', cats: ['BMW Truck'] },
+      { src: 'assets/truck-4.jpg', label: 'BMW E30 pickup. M Technic sill detail.', cats: ['BMW Truck'] },
+      { src: 'assets/truck-5.jpg', label: 'BMW E30 pickup. Shifter and console.', cats: ['BMW Truck'] },
+      { src: 'assets/truck-6.jpg', label: 'BMW E30 pickup. Karl Funk floor mat detail.', cats: ['BMW Truck'] },
+      { src: 'assets/truck-7.jpg', label: 'BMW E30 pickup. BBS wheel and fender.', cats: ['BMW Truck'] },
+      { src: 'assets/gr-1.jpg', label: 'Toyota GR Corolla. Hand-finishing the hood.', cats: ['GR'] },
+      { src: 'assets/gr-2.jpg', label: 'Corvette PPF install. Front bumper.', cats: ['GR'] },
+      { src: 'assets/gr-3.jpg', label: 'Corvette PPF install. Hood and splitter.', cats: ['GR'] },
+      { src: 'assets/gr-4.jpg', label: 'Toyota GR Corolla. Finishing the hood.', cats: ['GR'] },
+      { src: 'assets/gr-5.jpg', label: 'Toyota GR Corolla. Wiping the fender.', cats: ['GR'] },
+      { src: 'assets/gr-6.jpg', label: 'Toyota GR Corolla. Rear glass detail.', cats: ['GR'] },
+      { src: 'assets/gr-7.jpg', label: 'Corvette. Rocker PPF install.', cats: ['GR'] },
+      { src: 'assets/gr-8.jpg', label: 'Toyota GR Corolla. Front three-quarter, studio.', cats: ['GR'] },
+      { src: 'assets/gr-9.jpg', label: 'Toyota GR Corolla. GR grille badge.', cats: ['GR'] },
+      { src: 'assets/gr-10.jpg', label: 'Toyota GR Corolla. Fender and wheel.', cats: ['GR'] },
+      { src: 'assets/gr-11.jpg', label: 'Toyota GR Corolla. GR fender vent.', cats: ['GR'] },
+      { src: 'assets/gr-12.jpg', label: 'Toyota GR Corolla. Rear badge and diffuser.', cats: ['GR'] },
+      { src: 'assets/gr-13.jpg', label: 'Toyota GR Corolla. Front fender finish.', cats: ['GR'] },
+      { src: 'assets/porsche-1.jpg', label: '911 RWB widebody. CoaticLab show build.', cats: ['Porsche'] },
+      { src: 'assets/porsche-2.jpg', label: '992 Carrera GTS in red. Ceramic and tint.', cats: ['Porsche'] },
+      { src: 'assets/porsche-3.jpg', label: '993 GT2 tribute in red. Full detail.', cats: ['Porsche'] },
+      { src: 'assets/porsche-4.jpg', label: '992 GT3 in Ruby Star. Paint protection film.', cats: ['Porsche'] },
+      { src: 'assets/gt3-1.jpg', label: 'Porsche 992 GT3 in green. Headlight detail.', cats: ['GT3'] },
+      { src: 'assets/gt3-2.jpg', label: 'Porsche 992 GT3. 4.0 engine lid badge.', cats: ['GT3'] },
+      { src: 'assets/gt3-3.jpg', label: 'Porsche 992 GT3. Mirror and glass detail.', cats: ['GT3'] },
+      { src: 'assets/gt3-4.jpg', label: 'Porsche 992 GT3 in green. Front end, full PPF.', cats: ['GT3'] },
+      { src: 'assets/merc-1.jpg', label: 'Mercedes S580. Front three-quarter.', cats: ['Mercedes'] },
+      { src: 'assets/merc-2.jpg', label: 'Mercedes S580. Front end, full PPF.', cats: ['Mercedes'] },
+      { src: 'assets/merc-3.jpg', label: 'Mercedes S580. Front three-quarter, studio.', cats: ['Mercedes'] },
+      { src: 'assets/merc-4.jpg', label: 'Mercedes S580. Red diamond-quilted interior.', cats: ['Mercedes'] },
+      { src: 'assets/merc-5.jpg', label: 'Mercedes S580. Ambient-lit door and controls.', cats: ['Mercedes'] },
+      { src: 'assets/merc-6.jpg', label: 'Mercedes S580. Front grille and star.', cats: ['Mercedes'] },
+      { src: 'assets/merc-7.jpg', label: 'Mercedes S580. S580 badge and taillight.', cats: ['Mercedes'] },
+      { src: 'assets/merc-8.jpg', label: 'Mercedes S580. AMG wheel and brake.', cats: ['Mercedes'] },
+      { src: 'assets/merc-9.jpg', label: 'Mercedes S580. Red seat detail.', cats: ['Mercedes'] },
+      { src: 'assets/m2-1.jpg', label: 'BMW M2. Headlight and bumper detail.', cats: ['M2'] },
+      { src: 'assets/m2-2.jpg', label: 'BMW M2. Hand-finishing a panel.', cats: ['M2'] },
+      { src: 'assets/m2-3.jpg', label: 'BMW M2. Rocker and door detail.', cats: ['M2'] },
+      { src: 'assets/m2-4.jpg', label: 'BMW M2. Ceramic-coated quarter panel.', cats: ['M2'] },
+      { src: 'assets/m2-5.jpg', label: 'BMW M2. Buffing the rear quarter.', cats: ['M2'] },
+      { src: 'assets/m2-6.jpg', label: 'BMW M2. Front quarter and headlight.', cats: ['M2'] },
+      { src: 'assets/zr1-1.jpg', label: 'Corvette ZR1. Carbon rear wing detail.', cats: ['ZR1'] },
+      { src: 'assets/zr1-2.jpg', label: 'Corvette ZR1. Studio side profile.', cats: ['ZR1'] },
+      { src: 'assets/zr1-3.jpg', label: 'Corvette ZR1. Front three-quarter.', cats: ['ZR1'] },
+      { src: 'assets/zr1-4.jpg', label: 'Corvette ZR1. Front three-quarter, low.', cats: ['ZR1'] },
+      { src: 'assets/zr1-5.jpg', label: 'Corvette ZR1. Forged wheel and brake.', cats: ['ZR1'] },
+      { src: 'assets/zr1-6.jpg', label: 'Corvette ZR1. Rear three-quarter.', cats: ['ZR1'] },
+      { src: 'assets/zr1-7.jpg', label: 'Corvette ZR1. Wheel and Cup 2 detail.', cats: ['ZR1'] },
+      { src: 'assets/rev-1.jpg', label: 'Lamborghini Revuelto. Salt flats at sunset.', cats: ['Revuelto'] },
+      { src: 'assets/rev-2.jpg', label: 'Lamborghini Revuelto. Doors up under the moon.', cats: ['Revuelto'] },
+      { src: 'assets/rev-3.jpg', label: 'Lamborghini Revuelto. Rear wheel and wing.', cats: ['Revuelto'] },
+      { src: 'assets/rev-4.jpg', label: 'Lamborghini Revuelto. Front headlight detail.', cats: ['Revuelto'] },
+      { src: 'assets/rev-5.jpg', label: 'Lamborghini Revuelto. Rear diffuser and tails.', cats: ['Revuelto'] },
+      { src: 'assets/tesla-side.jpg', label: 'Tesla Model Y. Full front PPF and ceramic coating.', cats: ['Tesla'] },
+      { src: 'assets/porsche-993-red.jpg', label: 'Porsche 911. Paint correction and Gyeon coating.', cats: ['Paint Correction','Ceramic Coating'] },
+      { src: 'assets/tesla-front.jpg', label: 'Tesla. Ceramic coating.', cats: ['Ceramic Coating','Tesla'] },
+      { src: 'assets/gr-corolla-fender.jpg', label: 'GR Corolla. Ceramic coating.', cats: ['Ceramic Coating'] },
+      { src: 'assets/gr-corolla-rear.jpg', label: 'GR Corolla. Full interior and exterior detail.', cats: ['Detailing'] },
+      { src: 'assets/bmw-e30-pickup.jpg', label: 'BMW E30. Ceramic coating and detail.', cats: ['Ceramic Coating','Detailing'] },
+      { src: 'assets/bmw-e30-wheel.jpg', label: 'BMW E30. Wheel-off detail.', cats: ['Detailing'] },
+      { src: 'assets/rwb-event.jpg', label: 'RWB Porsche. CoaticLab meet.', cats: ['Detailing'] }
     ];
+    const P = (name, cover, line, tags, cats, imgs, featured) => ({ name, cover, line, tags, cats, imgs, featured: !!featured });
+    const projectsAll = [
+      P('Lamborghini Revuelto','assets/rev-3.jpg','An exotic that deserves nothing less than the full treatment.',['PPF','Ceramic','Tint'],['Paint Protection Film','Ceramic Coating','Window Tint','Exotics'],['assets/rev-1.jpg','assets/rev-2.jpg','assets/rev-3.jpg','assets/rev-4.jpg','assets/rev-5.jpg']),
+      P('Chevrolet Corvette ZR1','assets/zr1-3.jpg','An American icon, protected inside and out. Photo and video build.',['PPF','Ceramic','Tint'],['Paint Protection Film','Ceramic Coating','Window Tint','Exotics'],['assets/zr1-1.jpg','assets/zr1-2.jpg','assets/zr1-3.jpg','assets/zr1-4.jpg','assets/zr1-5.jpg','assets/zr1-6.jpg','assets/zr1-7.jpg'],true),
+      P('Porsche 911 GT3','assets/gt3-4.jpg','Track-bred looks, protected for the street.',['PPF'],['Paint Protection Film','Exotics'],['assets/gt3-1.jpg','assets/gt3-2.jpg','assets/gt3-3.jpg','assets/gt3-4.jpg']),
+      P('Toyota GR','assets/gr-13.jpg','A hot hatch built to be driven, and protected to match.',['PPF'],['Paint Protection Film'],['assets/gr-1.jpg','assets/gr-2.jpg','assets/gr-3.jpg','assets/gr-4.jpg','assets/gr-5.jpg','assets/gr-6.jpg','assets/gr-7.jpg','assets/gr-8.jpg','assets/gr-9.jpg','assets/gr-10.jpg','assets/gr-11.jpg','assets/gr-12.jpg','assets/gr-13.jpg']),
+      P('BMW M2','assets/m2-6.jpg','Compact, quick, and finished to a high standard.',['Ceramic','PPF'],['Ceramic Coating','Paint Protection Film'],['assets/m2-1.jpg','assets/m2-2.jpg','assets/m2-3.jpg','assets/m2-4.jpg','assets/m2-5.jpg','assets/m2-6.jpg']),
+      P('BMW Truck','assets/truck-1.jpg','Proof we protect more than just sports cars.',['Ceramic','Detail'],['Ceramic Coating','Paint Correction'],['assets/truck-1.jpg','assets/truck-2.jpg','assets/truck-3.jpg','assets/truck-4.jpg','assets/truck-5.jpg','assets/truck-6.jpg','assets/truck-7.jpg']),
+      P('Mercedes','assets/merc-4.jpg','Refined protection for a refined vehicle.',['PPF','Ceramic'],['Paint Protection Film','Ceramic Coating','Exotics'],['assets/merc-1.jpg','assets/merc-2.jpg','assets/merc-3.jpg','assets/merc-4.jpg','assets/merc-5.jpg','assets/merc-6.jpg','assets/merc-7.jpg','assets/merc-8.jpg','assets/merc-9.jpg']),
+      P('Porsche','assets/porsche-1.jpg','One of many Porsches through the studio.',['PPF','Ceramic','Tint'],['Paint Protection Film','Ceramic Coating','Window Tint','Exotics'],['assets/porsche-1.jpg','assets/porsche-2.jpg','assets/porsche-3.jpg','assets/porsche-4.jpg'])
+    ];
+    const pf = this.state.projectFilter;
+    const pfilters = ['All','Paint Protection Film','Ceramic Coating','Window Tint','Paint Correction','Exotics'];
+    const projFilterBtns = pfilters.map(f => ({ label: f, on: () => this.setState({ projectFilter: f }), style: this.filterStyle(f === pf) }));
+    const filteredProjects = (pf === 'All' ? projectsAll : projectsAll.filter(p => p.cats.indexOf(pf) > -1)).map((p, idx) => {
+      const realIndex = projectsAll.indexOf(p);
+      return {
+        name: p.name, line: p.line, tags: p.tags, featured: p.featured, count: p.imgs.length,
+        boxStyle: { position:'absolute', inset:'0', backgroundImage:'url('+p.cover+')', backgroundSize:'cover', backgroundPosition:'center' },
+        open: () => this.setState({ activeProject: realIndex })
+      };
+    });
+    const ap = this.state.activeProject;
+    const activeP = (ap === null || ap === undefined) ? null : projectsAll[ap];
+    const lightboxOpen = !!activeP;
+    const lightboxName = activeP ? activeP.name : '';
+    const lightboxImages = activeP ? activeP.imgs.map(s => ({ src: s })) : [];
+    const closeLightbox = () => this.setState({ activeProject: null });
+
     const gf = this.state.galleryFilter;
     const filteredGallery = (gf === 'All' ? galleryAll : galleryAll.filter(g => g.cats.indexOf(gf) > -1)).map(g => ({
       src: g.src,
@@ -423,7 +533,7 @@ class Component extends DCLogic {
         backgroundSize: 'cover', backgroundPosition: 'center'
       }
     }));
-    const filterBtns = ['All','PPF','Ceramic','Tint','Tesla','Detail'].map(f => ({
+    const filterBtns = ['All','ZR1','Revuelto','Porsche','GT3','Mercedes','M2','GR','BMW Truck','Paint Protection Film','Ceramic Coating','Window Tint','Paint Correction','Detailing','Tesla'].map(f => ({
       label: f,
       on: () => this.setState({ galleryFilter: f }),
       style: this.filterStyle(f === gf)
@@ -432,16 +542,13 @@ class Component extends DCLogic {
     return {
       isHome: page === 'home', isPpf: page === 'ppf', isCeramic: page === 'ceramic',
       isTint: page === 'tint', isCorrection: page === 'correction', isTesla: page === 'tesla',
-      isAbout: page === 'about', isGallery: page === 'gallery', isReviews: page === 'reviews', isContact: page === 'contact',
+      isAbout: page === 'about', isGallery: page === 'gallery', isProjects: page === 'projects', isReviews: page === 'reviews', isContact: page === 'contact',
       introPlaying: this.state.introPlaying,
       ppfIdle: !this.state.ppfPlaying,
       ppfAudio: this.state.ppfPlaying,
       playPpf: () => this.setState({ ppfPlaying: true }),
-      videoPlaying: this.state.videoPlaying,
-      videoStopped: !this.state.videoPlaying,
-      playVideo: () => this.setState({ videoPlaying: true }),
-      headerScrollAttr: (page === 'home' || page === 'about' || page === 'contact' ? 'home' : 'none'),
-      loopVideo: (e) => { const v = e.target; try { v.muted = true; v.loop = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {} },
+      headerScrollAttr: (page === 'home' || page === 'about' || page === 'contact' || page === 'gallery' || page === 'projects' ? 'home' : 'none'),
+      loopVideo: (e) => { const v = e.target; try { v.muted = true; v.loop = true; if (v.getAttribute('data-controls')) v.controls = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {} },
       trifItems, trifGridStyle,
       trifActiveTitle: trifData[trifTab].title,
       trifActiveNum: trifData[trifTab].num,
@@ -449,6 +556,8 @@ class Component extends DCLogic {
       menuOpen: this.state.menuOpen,
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       filteredGallery, filterBtns,
+      projFilterBtns, filteredProjects, projectsEmpty: filteredProjects.length === 0,
+      lightboxOpen, lightboxName, lightboxImages, closeLightbox,
       galleryEmpty: filteredGallery.length === 0,
       submitted: this.state.submitted,
       formVisible: !this.state.submitted,
