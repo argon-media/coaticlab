@@ -1,53 +1,75 @@
 # CoaticLab Automotive Studio — Website
 
 Marketing site for CoaticLab Automotive Studio (Gyeon-certified PPF, ceramic
-coatings, window tint, and paint correction in Clearfield, UT).
+coatings, window tint, paint correction and detailing in Clearfield, UT).
+
+Live: https://coaticlab.vercel.app (also served at coaticlab-new.argon-devsite.com)
 
 ## Architecture
 
-A **multi-page site published straight from Claude Design** using the design's
-own renderer (`support.js`, which mounts the pages with React). Each page is a
-standalone `.dc.html` document; the runtime renders it client-side.
+A **14-page site published straight from Claude Design** using the design's own
+renderer (`support.js`, which loads React, renders the `<x-dc>` template and
+fetches the component files). Each page is a standalone `.dc.html` document
+rendered client-side.
 
-```
-index.html            # Home
-ppf.dc.html           # /ppf
-ceramic.dc.html       # /ceramic
-tint.dc.html          # /tint
-correction.dc.html    # /correction
-tesla.dc.html         # /tesla
-about.dc.html         # /about
-gallery.dc.html       # /gallery
-reviews.dc.html       # /reviews
-contact.dc.html       # /contact
-GoogleReviews.dc.html, GoogleReviewsPPF.dc.html, VideoPlayer.dc.html  # components
-support.js            # design runtime (loads React, renders <x-dc>, fetches components)
-assets/               # images, logos, brand + certification marks, assets/instagram/
-vercel.json           # clean-URL rewrites (/ppf -> /ppf.dc.html, etc.)
-```
+| Page | File | URL |
+|---|---|---|
+| Home | `index.html` | `/` |
+| Paint Protection Film | `ppf.dc.html` | `/ppf` |
+| Ceramic Coatings | `ceramic.dc.html` | `/ceramic` |
+| Window Tint | `tint.dc.html` | `/tint` |
+| Commercial Tint | `commercial-tint.dc.html` | `/commercial-tint` |
+| Paint Correction | `correction.dc.html` | `/correction` |
+| Detailing | `detailing.dc.html` | `/detailing` |
+| Trifecta Package | `trifecta.dc.html` | `/trifecta` |
+| Tesla & EV | `tesla.dc.html` | `/tesla` |
+| About | `about.dc.html` | `/about` |
+| Projects | `projects.dc.html` | `/projects` |
+| Gallery | `gallery.dc.html` | `/gallery` |
+| Reviews | `reviews.dc.html` | `/reviews` |
+| Contact | `contact.dc.html` | `/contact` |
 
-Clean URLs are provided by `vercel.json` rewrites; in-page navigation uses
-`window.location.href` to `/ppf`, `/tesla`, etc.
+Shared: `support.js` (design runtime), `VideoPlayer.dc.html`, and the reviews
+widgets `GoogleReviews.dc.html` plus per-service forks (`GoogleReviewsPPF`,
+`…Ceramic`, `…Tint`, `…Correction`, `…Detail`, `…Tesla`). Images live in
+`assets/`; the real Instagram post images are in `assets/instagram/`.
+
+Clean URLs come from `vercel.json` rewrites (`/ppf` → `/ppf.dc.html`, …). In-page
+navigation uses `goto()`, whose `FILES` map is rewritten to those clean paths.
 
 ## Updating from a new Claude Design export
 
-Re-export the project, then for each page file: keep it verbatim **except**
-rewrite the `goto()` `FILES` map to the clean paths (`/ppf`, `/ceramic`, …),
-and on Home apply the client overrides — force the process video to `muted=1`,
-point the six Instagram tiles at `assets/instagram/<shortcode>.jpg`, and set the
-Window Tint service-card video to Vimeo `1210454530` (keep the `background=1&
-autoplay=1&loop=1&muted=1&autopause=0` + `data-cover-frame="1"` form so it fills
-the box borderless like the other cards).
-Copy `support.js`, the component `.dc.html` files, and `assets/`.
-(The scratchpad `setup_mp.py` script automates this.)
+```bash
+unzip "~/Downloads/CoaticLab Automotive Studio.zip" -d /tmp/coaticlab-export
+python3 tools/sync.py /tmp/coaticlab-export
+# verify locally: python3 -m http.server 8792  → http://localhost:8792
+git add -A && git commit -m "Sync with new export" && git push
+vercel deploy --prod --yes
+```
+
+`tools/sync.py` copies the pages/components/runtime/assets, rewrites the `goto()`
+FILES map to clean URLs, regenerates `vercel.json`, and re-applies the repo-only
+overrides below. It prints a counter per override — when a counter reads `0`, the
+design has absorbed that change and the override can be retired from the script.
+
+### Repo-only overrides (not yet in the design source)
+
+1. **Header logo → `/`** — the design ships `href="#"`; we make it a real home link.
+2. **Home process video muted** — the design ships `muted=0` on the PPF process video.
+3. **Home Instagram tiles** → the six real @coaticlab images in `assets/instagram/`
+   (the design uses placeholder photos).
+4. **Home: "Learn About Us" button removed** from the Family Owned section.
+
+Everything else (team photo, Read More/Less family toggle, Window Tint video,
+About family video with controls/no autoplay) is now baked into the design itself.
 
 ## Notes
 
 - Service clip loops (`data-bgloop`) and the PPF install film stream from
   `coatic-lab.argon-devsite.com` / Vimeo.
-- The "On the Instagram" strip uses the six real @coaticlab post images saved
-  under `assets/instagram/` — a snapshot, not a live feed.
-- The Home family section ("Built on craftsmanship") uses the real team photo
-  `assets/team-photo.jpg`, shown uncropped (natural width/height, no object-fit
-  cover). On re-export, point the `data-team-photo` image at `assets/team-photo.jpg`
-  and render it uncropped. The italic caption is still a placeholder pending copy.
+- The Instagram strip is a snapshot of six posts, not a live feed. To refresh it,
+  save the new post images to `assets/instagram/<shortcode>.jpg` and update the
+  post links in the design.
+- Outstanding content: the italic caption under the Home team photo is still a
+  placeholder awaiting copy, and the Reviews page featured video is a poster+play
+  placeholder until a real video URL is supplied.
