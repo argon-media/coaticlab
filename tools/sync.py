@@ -35,7 +35,6 @@ PAGES = [
     ('tint',        'Window Tint.dc.html',      'tint.dc.html',            '/tint'),
     ('commercial',  'Commercial Tint.dc.html',  'commercial-tint.dc.html', '/commercial-tint'),
     ('correction',  'Paint Correction.dc.html', 'correction.dc.html',      '/correction'),
-    ('detailing',   'Detailing.dc.html',        'detailing.dc.html',       '/detailing'),
     ('trifecta',    'Trifecta Package.dc.html', 'trifecta.dc.html',        '/trifecta'),
     ('tesla',       'Tesla.dc.html',            'tesla.dc.html',           '/tesla'),
     ('about',       'About.dc.html',            'about.dc.html',           '/about'),
