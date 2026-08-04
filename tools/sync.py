@@ -64,6 +64,14 @@ for key, src, dest, _url in PAGES:
     n_logo = s.count('href="#" onClick="{{ nav.home }}"')
     s = s.replace('href="#" onClick="{{ nav.home }}"', 'href="/" onClick="{{ nav.home }}"')
 
+    # favicon (CoaticLab logo pulled from coaticlab.com) in every page <head>
+    VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1">'
+    if 'favicon-32.png' not in s:
+        s = s.replace(VIEWPORT, VIEWPORT +
+            '\n<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">'
+            '\n<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">'
+            '\n<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">', 1)
+
     extra = ''
     if key == 'home':
         n_mute = s.count('muted=0')
@@ -112,6 +120,22 @@ for fn in sorted(refs):
     else:
         print(f'  !! uploads file missing in export: {fn}')
 print(f'uploads synced: {n_up} (of {len(refs)} referenced)')
+
+# Gallery "Fresh From The Studio": the Green Matte Audi build (full-body matte PPF,
+# matte ceramic coating, window tint) belongs in all three categories.
+gp = os.path.join(REPO, 'gallery.dc.html')
+if os.path.isfile(gp):
+    g = open(gp, encoding='utf-8').read()
+    AUDI_VID = '1215367940'
+    added = []
+    for title in ['Paint Protection Film', 'Ceramic Coating', 'Window Tint']:
+        m = re.search(r"title: '" + re.escape(title) + r"', vids: \[([^\]]*)\]", g)
+        if m and AUDI_VID not in m.group(1):
+            g = g[:m.start(1)] + "'" + AUDI_VID + "', " + m.group(1) + g[m.end(1):]
+            added.append(title)
+    if added:
+        open(gp, 'w', encoding='utf-8').write(g)
+    print(f'gallery: Green Matte Audi video added to {added or "(already present)"}')
 
 rewrites = [{"source": url, "destination": '/' + dest}
             for _k, _s, dest, url in PAGES if url != '/']
