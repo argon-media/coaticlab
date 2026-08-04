@@ -94,6 +94,25 @@ for f in os.listdir(os.path.join(EX, 'assets')):
         shutil.copy(sp, os.path.join(adir, f)); n_assets += 1
 print(f'assets synced: {n_assets}')
 
+# uploads/: the export ships a large WP-style media library; copy ONLY the files
+# actually referenced by the pages (gallery "Fresh From The Studio", etc.)
+udir = os.path.join(REPO, 'uploads')
+os.makedirs(udir, exist_ok=True)
+ref_re = re.compile(r"uploads/([^'\"<>]+?\.(?:jpg|jpeg|png|webp|gif|mp4))")
+refs = set()
+for _k, _s, dest, _url in PAGES:
+    fp = os.path.join(REPO, dest)
+    if os.path.isfile(fp):
+        refs.update(ref_re.findall(open(fp, encoding='utf-8').read()))
+n_up = 0
+for fn in sorted(refs):
+    sp = os.path.join(EX, 'uploads', fn)
+    if os.path.isfile(sp):
+        shutil.copy(sp, os.path.join(udir, fn)); n_up += 1
+    else:
+        print(f'  !! uploads file missing in export: {fn}')
+print(f'uploads synced: {n_up} (of {len(refs)} referenced)')
+
 rewrites = [{"source": url, "destination": '/' + dest}
             for _k, _s, dest, url in PAGES if url != '/']
 open(os.path.join(REPO, 'vercel.json'), 'w').write(json.dumps({"rewrites": rewrites}, indent=2))
