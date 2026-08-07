@@ -64,7 +64,8 @@ for key, src, dest, _url in PAGES:
     n_logo = s.count('href="#" onClick="{{ nav.home }}"')
     s = s.replace('href="#" onClick="{{ nav.home }}"', 'href="/" onClick="{{ nav.home }}"')
 
-    # favicon (CoaticLab logo pulled from coaticlab.com) in every page <head>
+    # favicon: drop the design's external (coaticlab.com) icon links and self-host
+    s = re.sub(r'\s*<link[^>]*href="https://www\.coaticlab\.com/[^"]*cropped-coatic-labs[^"]*"[^>]*>', '', s)
     VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1">'
     if 'favicon-32.png' not in s:
         s = s.replace(VIEWPORT, VIEWPORT +
@@ -106,7 +107,7 @@ print(f'assets synced: {n_assets}')
 # actually referenced by the pages (gallery "Fresh From The Studio", etc.)
 udir = os.path.join(REPO, 'uploads')
 os.makedirs(udir, exist_ok=True)
-ref_re = re.compile(r"uploads/([^'\"<>]+?\.(?:jpg|jpeg|png|webp|gif|mp4))")
+ref_re = re.compile(r"(?<!wp-content/)uploads/([^'\"<>]+?\.(?:jpg|jpeg|png|webp|gif|mp4))")
 refs = set()
 for _k, _s, dest, _url in PAGES:
     fp = os.path.join(REPO, dest)
