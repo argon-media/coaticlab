@@ -381,7 +381,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const page = __PAGE__;
-    const keys = ['home','ppf','ceramic','tint','commercial','correction','trifecta','tesla','about','projects','gallery','reviews','contact'];
+    const keys = ['home','ppf','ceramic','tint','commercial','correction','trifecta','tesla','about','projects','reviews','contact'];
     const nav = {};
     keys.forEach(k => { nav[k] = (e) => { if (e && e.preventDefault) e.preventDefault(); this.goto(k); }; });
     const navItems = [
@@ -469,7 +469,7 @@ class Component extends DCLogic {
     return {
       isHome: page === 'home', isPpf: page === 'ppf', isCeramic: page === 'ceramic',
       isTint: page === 'tint', isCorrection: page === 'correction', isTesla: page === 'tesla',
-      isAbout: page === 'about', isGallery: page === 'gallery', isReviews: page === 'reviews', isContact: page === 'contact',
+      isAbout: page === 'about', isReviews: page === 'reviews', isContact: page === 'contact',
       introPlaying: this.state.introPlaying,
       ppfIdle: !this.state.ppfPlaying,
       ppfAudio: this.state.ppfPlaying,

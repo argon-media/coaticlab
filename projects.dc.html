@@ -409,7 +409,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const page = __PAGE__;
-    const keys = ['home','ppf','ceramic','tint','commercial','correction','trifecta','tesla','about','projects','gallery','reviews','contact'];
+    const keys = ['home','ppf','ceramic','tint','commercial','correction','trifecta','tesla','about','projects','reviews','contact'];
     const nav = {};
     keys.forEach(k => { nav[k] = (e) => { if (e && e.preventDefault) e.preventDefault(); this.goto(k); }; });
     const navItems = [
@@ -557,12 +557,12 @@ class Component extends DCLogic {
       P('Porsche','assets/porsche-1-c.jpg','One of many Porsches through the studio.',['PPF','Ceramic','Tint'],['Paint Protection Film','Ceramic Coating','Window Tint','Exotics'],['assets/porsche-1-c.jpg','assets/porsche-2-c.jpg','assets/porsche-3-c.jpg','assets/porsche-4-c.jpg'])
     ];
     const nmAll = [
-      { key: 'ppf', title: 'Paint Protection Film', vids: ['1215367940', '1214580287', '1214580276', '1214580269', '1214580286', '1214580149', '1214580226', '1214580052', '1214580247', '1214580116', '1214580044', '1214579943', '1214579945', '1214579944'], photos: ['uploads/ppf (1).jpg', 'uploads/ppf 2 (1).jpg', 'uploads/PPF00004.jpg', 'uploads/PPF00008.jpg', 'uploads/PPF00009.jpg', 'uploads/PPF00010.jpg', 'uploads/PPF00011.jpg', 'uploads/PPF00012.jpg', 'uploads/PPF00015.jpg'] },
-      { key: 'ceramic', title: 'Ceramic Coating', vids: ['1218852963', '1216472033', '1215367940', '1214565352', '1214565349', '1214565303', '1214565274', '1214565221', '1214565247', '1214566052', '1214566054', '1214566053', '1214566055', '1214566121', '1214566124', '1214566136', '1214566147', '1214565217', '1214565220', '1214566180', '1214570904'], photos: ['uploads/ceramic coating (1).jpg', 'uploads/ceramic coating 2 (1).jpg', 'uploads/Ceramic Coating00002-c.jpg', 'uploads/Ceramic Coating00003-c.jpg', 'uploads/Ceramic Coating00004-c.jpg', 'uploads/Ceramic Coating00005-c.jpg', 'uploads/Ceramic Coating00006-c.jpg', 'uploads/Ceramic Coating00007-c.jpg', 'uploads/Ceramic Coating00008-c.jpg', 'uploads/Ceramic Coating00009-c.jpg', 'uploads/Ceramic Coating00010-c.jpg', 'uploads/Ceramic Coating00011-c.jpg', 'uploads/Ceramic Coating00012-c.jpg'] },
+      { key: 'ppf', title: 'Paint Protection Film', vids: ['1228851562', '1215367940', '1214580287', '1214580276', '1214580269', '1214580286', '1214580149', '1214580226', '1214580052', '1214580247', '1214580116', '1214580044', '1214579943', '1214579945', '1214579944'], photos: ['uploads/ppf (1).jpg', 'uploads/ppf 2 (1).jpg', 'uploads/PPF00004.jpg', 'uploads/PPF00008.jpg', 'uploads/PPF00009.jpg', 'uploads/PPF00010.jpg', 'uploads/PPF00011.jpg', 'uploads/PPF00012.jpg', 'uploads/PPF00015.jpg'] },
+      { key: 'ceramic', title: 'Ceramic Coating', vids: ['1228851559', '1218852963', '1216472033', '1215367940', '1214565352', '1214565349', '1214565303', '1214565274', '1214565221', '1214565247', '1214566052', '1214566054', '1214566053', '1214566055', '1214566121', '1214566124', '1214566136', '1214566147', '1214565217', '1214565220', '1214566180', '1214570904'], photos: ['uploads/ceramic coating (1).jpg', 'uploads/ceramic coating 2 (1).jpg', 'uploads/Ceramic Coating00002-c.jpg', 'uploads/Ceramic Coating00003-c.jpg', 'uploads/Ceramic Coating00004-c.jpg', 'uploads/Ceramic Coating00005-c.jpg', 'uploads/Ceramic Coating00006-c.jpg', 'uploads/Ceramic Coating00007-c.jpg', 'uploads/Ceramic Coating00008-c.jpg', 'uploads/Ceramic Coating00009-c.jpg', 'uploads/Ceramic Coating00010-c.jpg', 'uploads/Ceramic Coating00011-c.jpg', 'uploads/Ceramic Coating00012-c.jpg'] },
       { key: 'tint', title: 'Window Tint', vids: ['1218852962', '1215367940', '1210454530', '1214582853', '1214582854', '1214582855'], photos: ['uploads/IMG_6280.jpg', 'uploads/tint (1).jpg', 'uploads/Tint00002.jpg', 'uploads/Tint00003.jpg', 'uploads/Tint00004.jpg', 'uploads/Tint00005.jpg', 'uploads/Tint00006.jpg', 'uploads/Tint00007.jpg', 'uploads/Tint00010.jpg', 'uploads/Tint00011.jpg'] },
       { key: 'correction', title: 'Paint Correction', vids: ['1216472034', '1216472032', '1214566133', '1214566170', '1214565218'], photos: ['uploads/paint correction (1).jpg', 'uploads/paint correction 2 (1).jpg', 'uploads/Paint Correction-c.jpg'] },
       { key: 'windshield', title: 'Windshield Protection', vids: ['1216472031'], photos: [] },
-      { key: 'tesla', title: 'Tesla', vids: ['1218852962', '1218852963', '1214570904', '1216472032', '1214583567', '1214583568'], photos: ['uploads/Tesla00001.jpg', 'uploads/Tesla00002.jpg'] }
+      { key: 'tesla', title: 'Tesla', vids: ['1228851561', '1218852962', '1218852963', '1214570904', '1216472032', '1214583567', '1214583568'], photos: ['uploads/IMG_6289 (1).jpeg', 'uploads/Tesla00001.jpg', 'uploads/Tesla00002.jpg'] }
     ];
     const nmSel = this.state.newMediaFilter || 'Paint Protection Film';
     const nmTab = this.state.newMediaTab || 'videos';
@@ -603,12 +603,12 @@ class Component extends DCLogic {
     return {
       isHome: page === 'home', isPpf: page === 'ppf', isCeramic: page === 'ceramic',
       isTint: page === 'tint', isCorrection: page === 'correction', isTesla: page === 'tesla',
-      isAbout: page === 'about', isGallery: page === 'gallery', isProjects: page === 'projects', isReviews: page === 'reviews', isContact: page === 'contact',
+      isAbout: page === 'about', isProjects: page === 'projects', isReviews: page === 'reviews', isContact: page === 'contact',
       introPlaying: this.state.introPlaying,
       ppfIdle: !this.state.ppfPlaying,
       ppfAudio: this.state.ppfPlaying,
       playPpf: () => this.setState({ ppfPlaying: true }),
-      headerScrollAttr: (page === 'home' || page === 'about' || page === 'contact' || page === 'gallery' || page === 'projects' ? 'home' : 'none'),
+      headerScrollAttr: (page === 'home' || page === 'about' || page === 'contact' || page === 'projects' ? 'home' : 'none'),
       loopVideo: (e) => { const v = e.target; try { v.muted = true; v.loop = true; if (v.getAttribute('data-controls')) v.controls = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {} },
       trifItems, trifGridStyle,
       trifActiveTitle: trifData[trifTab].title,
