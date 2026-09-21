@@ -149,6 +149,9 @@ if os.path.isfile(stale):
 
 rewrites = [{"source": url, "destination": '/' + dest}
             for _k, _s, dest, url in PAGES if url != '/']
-open(os.path.join(REPO, 'vercel.json'), 'w').write(json.dumps({"rewrites": rewrites}, indent=2))
-print(f'vercel.json: {len(rewrites)} clean-URL rewrites')
+# Gallery was merged into Projects; 301 the old standalone URL so bookmarks/SEO survive.
+redirects = [{"source": "/gallery", "destination": "/projects", "permanent": True}]
+open(os.path.join(REPO, 'vercel.json'), 'w').write(
+    json.dumps({"rewrites": rewrites, "redirects": redirects}, indent=2))
+print(f'vercel.json: {len(rewrites)} clean-URL rewrites, {len(redirects)} redirect')
 print('\nDone. Verify locally, then commit + `vercel deploy --prod`.')

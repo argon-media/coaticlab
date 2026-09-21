@@ -44,5 +44,12 @@
       "source": "/contact",
       "destination": "/contact.dc.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/gallery",
+      "destination": "/projects",
+      "permanent": true
+    }
   ]
 }
