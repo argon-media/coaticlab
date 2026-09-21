@@ -37,10 +37,6 @@
       "destination": "/projects.dc.html"
     },
     {
-      "source": "/gallery",
-      "destination": "/gallery.dc.html"
-    },
-    {
       "source": "/reviews",
       "destination": "/reviews.dc.html"
     },

@@ -39,12 +39,15 @@ PAGES = [
     ('tesla',       'Tesla.dc.html',            'tesla.dc.html',           '/tesla'),
     ('about',       'About.dc.html',            'about.dc.html',           '/about'),
     ('projects',    'Projects.dc.html',         'projects.dc.html',        '/projects'),
-    ('gallery',     'Gallery.dc.html',          'gallery.dc.html',         '/gallery'),
     ('reviews',     'Reviews.dc.html',          'reviews.dc.html',         '/reviews'),
     ('contact',     'Contact.dc.html',          'contact.dc.html',         '/contact'),
 ]
 
-CLEAN_MAP = 'var FILES = {' + ','.join(f"{k}:'{url}'" for k, _s, _d, url in PAGES) + '}'
+# The standalone Gallery page was merged into Projects (Sep 2026 export: the nav's
+# "Gallery" link now maps to Projects.dc.html, which carries "Fresh From The Studio").
+# Keep the nav.gallery key working by aliasing it to the Projects clean URL.
+CLEAN_MAP = ('var FILES = {' + ','.join(f"{k}:'{url}'" for k, _s, _d, url in PAGES)
+             + ",gallery:'/projects'}")
 FILES_RE = re.compile(r'var FILES = \{[^}]*\}')
 IG_RE = re.compile(r'(href="https://www\.instagram\.com/p/([A-Za-z0-9_-]+)/"[^>]*>\s*<img src=")assets/[A-Za-z0-9._-]+(")')
 LEARN_RE = re.compile(r'\s*<a href="#" onClick="\{\{ nav\.about \}\}"[^>]*>Learn About Us</a>')
@@ -122,9 +125,9 @@ for fn in sorted(refs):
         print(f'  !! uploads file missing in export: {fn}')
 print(f'uploads synced: {n_up} (of {len(refs)} referenced)')
 
-# Gallery "Fresh From The Studio": the Green Matte Audi build (full-body matte PPF,
-# matte ceramic coating, window tint) belongs in all three categories.
-gp = os.path.join(REPO, 'gallery.dc.html')
+# "Fresh From The Studio" (now on the Projects page): the Green Matte Audi build
+# (full-body matte PPF, matte ceramic coating, window tint) belongs in all three categories.
+gp = os.path.join(REPO, 'projects.dc.html')
 if os.path.isfile(gp):
     g = open(gp, encoding='utf-8').read()
     AUDI_VID = '1215367940'
@@ -136,7 +139,13 @@ if os.path.isfile(gp):
             added.append(title)
     if added:
         open(gp, 'w', encoding='utf-8').write(g)
-    print(f'gallery: Green Matte Audi video added to {added or "(already present)"}')
+    print(f'projects gallery: Green Matte Audi video added to {added or "(already present)"}')
+
+# Retire the standalone gallery page (merged into Projects).
+stale = os.path.join(REPO, 'gallery.dc.html')
+if os.path.isfile(stale):
+    os.remove(stale)
+    print('removed stale gallery.dc.html (merged into Projects)')
 
 rewrites = [{"source": url, "destination": '/' + dest}
             for _k, _s, dest, url in PAGES if url != '/']
