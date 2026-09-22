@@ -83,6 +83,12 @@ for key, src, dest, _url in PAGES:
         s, n_ig = IG_RE.subn(lambda m: m.group(1) + 'assets/instagram/' + m.group(2) + '.jpg' + m.group(3), s)
         s, n_learn = LEARN_RE.subn('', s)
         extra = f'  muted={n_mute} ig={n_ig} learnAboutRemoved={n_learn}'
+    elif key == 'tint':
+        # Recent Tint Work: tint-truck-door.jpg is the same grey Raptor door as the
+        # newly added tint-build-6280.jpg (duplicate row); show the Civic shot instead.
+        n_civic = s.count('assets/tint-truck-door.jpg')
+        s = s.replace('assets/tint-truck-door.jpg', 'assets/tint-civic.png')
+        extra = f'  truckDoor->civic={n_civic}'
 
     open(os.path.join(REPO, dest), 'w', encoding='utf-8').write(s)
     print(f'  {dest:26} logoLinks={n_logo}{extra}')
