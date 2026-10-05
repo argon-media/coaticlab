@@ -89,6 +89,14 @@ for key, src, dest, _url in PAGES:
         n_civic = s.count('assets/tint-truck-door.jpg')
         s = s.replace('assets/tint-truck-door.jpg', 'assets/tint-civic.png')
         extra = f'  truckDoor->civic={n_civic}'
+    elif key == 'correction':
+        # Hero: the GT3 banner ships anchored to the bottom (object-position ...100%),
+        # which clips the car's roof on tall/wide screens. Center it vertically (70%) so
+        # the whole car stays in frame at every viewport size.
+        s, n_hero = re.subn(
+            r'(<img src="assets/banner-correction[^"]*"[^>]*object-position:)[^;"]*',
+            r'\g<1>60% 70%', s)
+        extra = f'  heroObjPos={n_hero}'
 
     open(os.path.join(REPO, dest), 'w', encoding='utf-8').write(s)
     print(f'  {dest:26} logoLinks={n_logo}{extra}')
