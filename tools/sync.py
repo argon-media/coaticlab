@@ -112,6 +112,21 @@ for c in comps:
         shutil.copy(src_c, os.path.join(REPO, c))
 print('\ncomponents:', ', '.join(comps))
 
+# Mobile hero height (repo-only override): the design ships the mobile hero at
+# `calc(100svh + 64px)` (taller than the screen), which pushes the text far below
+# the car with a big gap. Shrink it so the whole hero fits one screen and the text
+# sits close to the image. Desktop heroes are intentionally left unchanged.
+mcss = os.path.join(REPO, 'mobile.css')
+if os.path.isfile(mcss):
+    m = open(mcss, encoding='utf-8').read()
+    m2 = m.replace('[data-mhero] { min-height: calc(100svh + 64px);',
+                   '[data-mhero] { min-height: calc(100svh - 150px);')
+    if m2 != m:
+        open(mcss, 'w', encoding='utf-8').write(m2)
+        print('mobile.css: hero height 100svh+64px -> 100svh-150px')
+    else:
+        print('mobile.css: hero-height rule not found (design may have changed it)')
+
 # assets (additive: never delete assets/instagram/ or other repo-only files)
 adir = os.path.join(REPO, 'assets')
 os.makedirs(adir, exist_ok=True)

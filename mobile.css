@@ -110,7 +110,7 @@
 /* Round 4 mobile fixes */
 @media (max-width: 767px) {
   /* Hero fills the first screen; image keeps its frame, text centered in the rest */
-  [data-mhero] { min-height: calc(100svh + 64px); display: flex; flex-direction: column; }
+  [data-mhero] { min-height: calc(100svh - 150px); display: flex; flex-direction: column; }
   [data-mhero] > div:nth-child(2) { flex: 1 1 auto; justify-content: center; }
   /* Timelines inside scrollers: hide nested rail lines */
   [data-film] div[style*="top: 9px; height: 2px"] { display: none !important; }
