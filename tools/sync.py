@@ -67,6 +67,14 @@ for key, src, dest, _url in PAGES:
     n_logo = s.count('href="#" onClick="{{ nav.home }}"')
     s = s.replace('href="#" onClick="{{ nav.home }}"', 'href="/" onClick="{{ nav.home }}"')
 
+    # repo-only mobile overrides: load mobile-overrides.css right after the design's
+    # mobile.css so our mobile-only tweaks win (the design's mobile.css is never edited).
+    # mobile-overrides.css is maintained in the repo, not copied from the export.
+    if 'mobile.css' in s and 'mobile-overrides.css' not in s:
+        s = s.replace('<link rel="stylesheet" href="mobile.css">',
+                      '<link rel="stylesheet" href="mobile.css">\n'
+                      '  <link rel="stylesheet" href="mobile-overrides.css">', 1)
+
     # favicon: drop the design's external (coaticlab.com) icon links and self-host
     s = re.sub(r'\s*<link[^>]*href="https://www\.coaticlab\.com/[^"]*cropped-coatic-labs[^"]*"[^>]*>', '', s)
     VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1">'

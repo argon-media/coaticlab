@@ -1,0 +1,35 @@
+/* CoaticLab — repo-only MOBILE overrides.
+   Loaded AFTER the design's mobile.css so these win. Everything here is scoped to
+   mobile (max-width: 767px); desktop and tablet are never affected.
+   Maintained by hand (not from the Claude Design export).
+
+   NOTE: pages are re-rendered by support.js (React), which re-serializes inline
+   styles (spaces after ':'/',', colors as rgb()). Attribute selectors below must
+   match that serialized form, not the raw .dc.html source. */
+
+@media (max-width: 767px) {
+
+  /* Google Reviews: move the prev/next arrows to the left & right sides of the card,
+     vertically centered, like a standard carousel. The carousel is arrow-driven
+     (no swipe), so the arrows stay — just repositioned. Applies to every review
+     widget (home, service pages, reviews page). */
+  div[style*="border-radius: 16px"]:has(button[aria-label="Previous reviews"]) {
+    position: relative !important;
+    padding-left: 54px !important;
+    padding-right: 54px !important;
+  }
+  button[aria-label="Previous reviews"],
+  button[aria-label="Next reviews"] {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    z-index: 4 !important;
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: 0 2px 10px rgba(8, 18, 40, 0.18) !important;
+  }
+  button[aria-label="Previous reviews"] { left: 6px !important; }
+  button[aria-label="Next reviews"]     { right: 6px !important; }
+
+}
