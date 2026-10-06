@@ -92,7 +92,7 @@ class Component extends DCLogic {
     const all = this.data();
     const per = this.state.w < 700 ? 1 : (this.state.w < 1040 ? 2 : 3);
     const len = all.length;
-    const isGrid = this.props.layout === 'grid';
+    const isGrid = this.props.layout === 'grid' && this.state.w >= 768;
     const start = ((this.state.start % len) + len) % len;
     const visible = [];
     if (isGrid) {

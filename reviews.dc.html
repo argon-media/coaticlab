@@ -66,6 +66,7 @@
   .nav-drop:hover .nav-drop-trigger{opacity:1;}
 </style>
 <link rel="stylesheet" href="mobile.css">
+<script src="mobile.js"></script>
 </helmet>
 <div style="background-color:#F3F3F3;background-image:none;color:#1B2436;font-family:'Open Sans',sans-serif;min-height:100vh;overflow-x:clip;">
 
@@ -88,21 +89,32 @@
       <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;">
         <a href="/" onClick="{{ nav.home }}" style="line-height:0;"><img src="assets/logo-white.png" alt="CoaticLab" style="height:28px;display:block;"></a>
         <div style="display:flex;align-items:center;gap:9px;">
-          <a href="tel:+13852896267" style="display:inline-flex;align-items:center;background:transparent;color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:12px;border:1.5px solid rgba(255,255,255,0.55);padding:9px 14px;text-decoration:none;">Call</a>
-          <a href="#" onClick="{{ nav.contact }}" style="display:inline-flex;align-items:center;background:#fff;color:#15233F;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:12px;padding:10px 16px;text-decoration:none;">Quote</a>
-          <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display:flex;flex-direction:column;justify-content:center;gap:4px;width:38px;height:36px;padding:0 8px;background:transparent;border:1px solid rgba(255,255,255,0.45);cursor:pointer;">
-            <span style="display:block;height:1.5px;background:#fff;"></span>
-            <span style="display:block;height:1.5px;background:#fff;"></span>
-            <span style="display:block;height:1.5px;background:#fff;"></span>
-          </button>
+          <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+            <a href="#" onClick="{{ nav.contact }}" style="display:inline-flex;align-items:center;background:#fff;color:#15233F;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:12px;padding:11px 16px;text-decoration:none;">Quote</a>
+            <button onClick="{{ toggleMenu }}" aria-label="Open menu" style="display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:38px;padding:0 9px;background:transparent;border:1px solid rgba(255,255,255,0.55);cursor:pointer;">
+              <span style="display:block;height:2px;background:#fff;"></span>
+              <span style="display:block;height:2px;background:#fff;"></span>
+              <span style="display:block;height:2px;background:#fff;"></span>
+            </button>
+          </sc-if>
+          <sc-if value="{{ menuOpen }}">
+            <button onClick="{{ toggleMenu }}" aria-label="Close menu" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;background:#fff;border:0;cursor:pointer;color:#15233F;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+            </button>
+          </sc-if>
         </div>
       </div>
       <sc-if value="{{ menuOpen }}">
-        <div style="position:relative;background:#0E1E3C;padding:6px 18px 20px;box-shadow:0 18px 32px rgba(14,30,60,0.3);">
-          <div style="padding:14px 0 6px;border-bottom:1px solid rgba(255,255,255,0.12);"><div style="font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.14em;font-size:11px;color:#8CA0C8;margin-bottom:2px;">Services</div><a href="#" onClick="{{ nav.trifecta }}" style="display:block;font-family:'Open Sans',sans-serif;font-size:14px;color:#C3CEE3;text-decoration:none;padding:9px 0;">The Trifecta</a><a href="#" onClick="{{ nav.ppf }}" style="display:block;font-family:'Open Sans',sans-serif;font-size:14px;color:#C3CEE3;text-decoration:none;padding:9px 0;">Paint Protection Film</a><a href="#" onClick="{{ nav.ceramic }}" style="display:block;font-family:'Open Sans',sans-serif;font-size:14px;color:#C3CEE3;text-decoration:none;padding:9px 0;">Ceramic Coating</a><a href="#" onClick="{{ nav.tint }}" style="display:block;font-family:'Open Sans',sans-serif;font-size:14px;color:#C3CEE3;text-decoration:none;padding:9px 0;">Window Tint</a><a href="#" onClick="{{ nav.commercial }}" style="display:block;font-family:'Open Sans',sans-serif;font-size:14px;color:#C3CEE3;text-decoration:none;padding:9px 0;">Commercial Tint</a><a href="#" onClick="{{ nav.correction }}" style="display:block;font-family:'Open Sans',sans-serif;font-size:14px;color:#C3CEE3;text-decoration:none;padding:9px 0;">Paint Correction</a></div><a href="#" onClick="{{ nav.tesla }}" style="display:flex;align-items:baseline;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:14px;color:#fff;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.12);">Tesla</a><a href="#" onClick="{{ nav.about }}" style="display:flex;align-items:baseline;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:14px;color:#fff;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.12);">About</a><a href="#" onClick="{{ nav.projects }}" style="display:flex;align-items:baseline;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:14px;color:#fff;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.12);">Projects</a><a href="#" onClick="{{ nav.reviews }}" style="display:flex;align-items:baseline;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:14px;color:#fff;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.12);">Reviews</a><a href="#" onClick="{{ nav.contact }}" style="display:flex;align-items:baseline;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:14px;color:#fff;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.12);">Contact</a>
-          <div style="display:flex;gap:10px;margin-top:18px;">
-            <a href="tel:+13852896267" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#21314d;font-family:'Open Sans',sans-serif;font-weight:700;font-size:13px;border:1.5px solid #21314d;padding:15px;text-transform:uppercase;letter-spacing:0.05em;text-decoration:none;">Call</a>
-            <a href="#" onClick="{{ nav.contact }}" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#21314d;color:#fff;font-family:'Open Sans',sans-serif;font-weight:700;font-size:13px;padding:15px;text-transform:uppercase;letter-spacing:0.05em;text-decoration:none;">Get a Quote</a>
+        <div style="position:relative;background:#0E1E3C;padding:0 0 20px;box-shadow:0 18px 32px rgba(14,30,60,0.3);max-height:calc(100vh - 68px);overflow-y:auto;">
+          <details class="m-svc">
+            <summary style="display:flex;align-items:center;gap:10px;padding:16px 20px 12px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;color:#C3CEE3;cursor:pointer;">Services<svg class="m-chev" width="14" height="14" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.55));" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></summary>
+            <a href="#" onClick="{{ nav.trifecta }}" style="display:block;padding:20px 25px;background:linear-gradient(135deg,#204179 0%,#15294E 100%);border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;"><div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9FC0F0;margin-bottom:7px;">Most Popular</div><div style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 118,'wght' 800;text-transform:uppercase;letter-spacing:0.02em;font-size:20px;color:#fff;">The Trifecta</div></a>
+            <div style="padding:8px 0 4px;"><a href="#" onClick="{{ nav.ppf }}" style="display:block;padding:13px 20px 13px 29px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:14px;color:#C3CEE3;text-decoration:none;">Paint Protection Film</a><a href="#" onClick="{{ nav.ceramic }}" style="display:block;padding:13px 20px 13px 29px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:14px;color:#C3CEE3;text-decoration:none;">Ceramic Coating</a><a href="#" onClick="{{ nav.tint }}" style="display:block;padding:13px 20px 13px 29px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:14px;color:#C3CEE3;text-decoration:none;">Window Tint</a><a href="#" onClick="{{ nav.commercial }}" style="display:block;padding:13px 20px 13px 29px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:14px;color:#C3CEE3;text-decoration:none;">Commercial Tint</a><a href="#" onClick="{{ nav.correction }}" style="display:block;padding:13px 20px 13px 29px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:14px;color:#C3CEE3;text-decoration:none;">Paint Correction</a></div>
+          </details>
+          <div style="padding:0 0 6px;"><a href="#" onClick="{{ nav.tesla }}" style="display:block;padding:12px 20px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;color:#C3CEE3;text-decoration:none;">Tesla</a><a href="#" onClick="{{ nav.about }}" style="display:block;padding:12px 20px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;color:#C3CEE3;text-decoration:none;">About</a><a href="#" onClick="{{ nav.projects }}" style="display:block;padding:12px 20px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;color:#C3CEE3;text-decoration:none;">Projects</a><a href="#" onClick="{{ nav.reviews }}" style="display:block;padding:12px 20px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;color:#C3CEE3;text-decoration:none;">Reviews</a><a href="#" onClick="{{ nav.contact }}" style="display:block;padding:12px 20px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;color:#C3CEE3;text-decoration:none;">Contact</a></div>
+          <div style="display:flex;gap:10px;margin-top:12px;padding:0 20px;">
+            <a href="tel:+13852896267" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#21314d;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;border:1.5px solid #fff;padding:15px;text-transform:uppercase;letter-spacing:0.05em;text-decoration:none;">Call</a>
+            <a href="#" onClick="{{ nav.contact }}" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;border:1.5px solid rgba(255,255,255,0.6);padding:15px;text-transform:uppercase;letter-spacing:0.05em;text-decoration:none;">Get a Quote</a>
           </div>
         </div>
       </sc-if>
@@ -118,7 +130,7 @@
   <section data-mhero="1" style="position:relative;margin-top:-64px;background:#0C0D10;overflow:hidden;">
     <div style="position:relative;width:100%;aspect-ratio:6/5;max-height:78vh;overflow:hidden;">
       <img src="assets/banner-reviews-raptor.png" alt="Lifted Ford Raptor outside the CoaticLab studio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;">
-      <div style="position:absolute;top:0;left:0;right:0;height:132px;background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 48%,rgba(0,0,0,0) 100%);"></div>
+      <div style="position:absolute;top:0;left:0;right:0;height:120px;background:linear-gradient(180deg,rgba(0,0,0,0.42) 0%,rgba(0,0,0,0.16) 55%,rgba(0,0,0,0) 100%);"></div>
       <div style="position:absolute;left:0;right:0;bottom:0;height:44%;background:linear-gradient(180deg,rgba(12,13,16,0) 0%,rgba(12,13,16,0.78) 62%,#0C0D10 100%);"></div>
     </div>
     <div style="position:relative;margin-top:-56px;padding:0 22px 44px;display:flex;flex-direction:column;align-items:flex-start;">
@@ -464,7 +476,7 @@ class Component extends DCLogic {
       trifActiveTitle: trifData[trifTab].title,
       trifActiveNum: trifData[trifTab].num,
       nav, navItems, isMobile, isDesktop: !isMobile,
-      menuOpen: this.state.menuOpen,
+      menuOpen: this.state.menuOpen, menuClosed: !this.state.menuOpen,
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       filteredGallery, filterBtns,
       galleryEmpty: filteredGallery.length === 0,
