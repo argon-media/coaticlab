@@ -63,6 +63,7 @@
   .nav-drop:hover .nav-drop-trigger{opacity:1;}
   details.faq summary::-webkit-details-marker{display:none;}
 </style>
+<link rel="stylesheet" href="mobile.css">
 </helmet>
 <div style="background-color:#F3F3F3;background-image:none;color:#1B2436;font-family:'Open Sans',sans-serif;min-height:100vh;overflow-x:clip;">
 
@@ -110,6 +111,7 @@
     <sc-if value="{{ isTesla }}">
 <div style="animation:cl-fade .5s ease;">
 
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
   <section style="position:relative;min-height:clamp(560px,86vh,780px);margin-top:-96px;background:#0C0D10;overflow:hidden;display:flex;">
     <img src="assets/tesla-hero-banner-c.jpg" alt="Tesla protected at CoaticLab" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,0.62) 0%,rgba(6,10,20,0.36) 46%,rgba(6,10,20,0.84) 100%);"></div>
@@ -125,6 +127,24 @@
       </div>
     </div>
   </section>
+  </sc-if>
+  <sc-if value="{{ isMobile }}">
+  <section data-mhero="1" style="position:relative;margin-top:-64px;background:#0C0D10;overflow:hidden;">
+    <div style="position:relative;width:100%;aspect-ratio:6/5;max-height:78vh;overflow:hidden;">
+      <img src="assets/tesla-hero-banner-c.jpg" alt="Tesla protected at CoaticLab" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;">
+      <div style="position:absolute;top:0;left:0;right:0;height:132px;background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 48%,rgba(0,0,0,0) 100%);"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;height:44%;background:linear-gradient(180deg,rgba(12,13,16,0) 0%,rgba(12,13,16,0.78) 62%,#0C0D10 100%);"></div>
+    </div>
+    <div style="position:relative;margin-top:-56px;padding:0 22px 44px;display:flex;flex-direction:column;align-items:flex-start;">
+      <h1 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 850;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.9;margin:0;color:#fff;font-size:38px;text-wrap:balance;">Tesla Protection</h1>
+      <p style="font-family:'Open Sans',sans-serif;color:#DCE3F0;font-size:15px;line-height:1.6;margin:14px 0 0;">Paint protection film, ceramic coating, and tint built for Teslas. Keep your EV looking factory-fresh from day one.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px;align-self:stretch;">
+        <a href="#" onClick="{{ nav.contact }}" style="display:flex;align-items:center;justify-content:center;height:52px;gap:10px;background:#fff;color:#15233F;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:0 20px;text-decoration:none;transition:all .18s;" style-hover="background:#EAF0F8;transform:translateY(-2px);">Get a Quote</a>
+        <a href="tel:+13852896267" style="display:flex;align-items:center;justify-content:center;height:52px;gap:10px;background:rgba(255,255,255,0.08);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:0 20px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.5);transition:all .18s;" style-hover="border-color:#fff;background:rgba(255,255,255,0.16);">Call (385) 289-6267</a>
+      </div>
+    </div>
+  </section>
+  </sc-if>
   <section style="background:#fff;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:stretch;">
       <div style="position:relative;height:100%;min-height:clamp(420px,48vw,660px);overflow:hidden;background:#0C0D10;"><img src="assets/tesla-side.jpg" alt="Matte Tesla protected with PPF at CoaticLab in Clearfield, Utah" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;"></div>
@@ -507,7 +527,7 @@ class Component extends DCLogic {
       ppfIdle: !this.state.ppfPlaying,
       ppfAudio: this.state.ppfPlaying,
       playPpf: () => this.setState({ ppfPlaying: true }),
-      headerScrollAttr: (page === 'home' || page === 'about' || page === 'contact' || page === 'tesla' ? 'home' : 'none'),
+      headerScrollAttr: isMobile ? 'home' : (page === 'home' || page === 'about' || page === 'contact' || page === 'tesla' ? 'home' : 'none'),
       loopVideo: (e) => { const v = e.target; try { v.muted = true; v.loop = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {} },
       trifItems, trifGridStyle,
       trifActiveTitle: trifData[trifTab].title,

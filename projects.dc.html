@@ -63,6 +63,7 @@
   .nav-drop:hover .nav-drop-trigger{opacity:1;}
 </style>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#15233F"></rect><text x="100" y="118" font-family="Archivo, sans-serif" font-size="58" font-weight="800" fill="#ffffff" text-anchor="middle">CL</text></svg></template>
+<link rel="stylesheet" href="mobile.css">
 </helmet>
 <div style="background-color:#F3F3F3;background-image:none;color:#1B2436;font-family:'Open Sans',sans-serif;min-height:100vh;overflow-x:clip;">
 
@@ -109,6 +110,7 @@
   <main style="display:block;">
     <sc-if value="{{ isProjects }}">
 <div style="animation:cl-fade .5s ease;">
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
   <section style="position:relative;min-height:clamp(560px,86vh,780px);margin-top:-96px;background:#0C0D10;overflow:hidden;display:flex;">
     <img src="assets/gallery-hero.jpg" alt="A black Lamborghini Revuelto at sunset on the Utah salt flats" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,0.62) 0%,rgba(6,10,20,0.34) 46%,rgba(6,10,20,0.84) 100%);"></div>
@@ -122,6 +124,24 @@
       </div>
     </div>
   </section>
+  </sc-if>
+  <sc-if value="{{ isMobile }}">
+  <section data-mhero="1" style="position:relative;margin-top:-64px;background:#0C0D10;overflow:hidden;">
+    <div style="position:relative;width:100%;aspect-ratio:6/5;max-height:78vh;overflow:hidden;">
+      <img src="assets/gallery-hero.jpg" alt="A black Lamborghini Revuelto at sunset on the Utah salt flats" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 50%;">
+      <div style="position:absolute;top:0;left:0;right:0;height:132px;background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 48%,rgba(0,0,0,0) 100%);"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;height:44%;background:linear-gradient(180deg,rgba(12,13,16,0) 0%,rgba(12,13,16,0.78) 62%,#0C0D10 100%);"></div>
+    </div>
+    <div style="position:relative;margin-top:-56px;padding:0 22px 44px;display:flex;flex-direction:column;align-items:flex-start;">
+      <h1 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 850;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.9;margin:0;color:#fff;font-size:38px;text-wrap:balance;">Projects</h1>
+      <p style="font-family:'Open Sans',sans-serif;color:#DCE3F0;font-size:15px;line-height:1.6;margin:14px 0 0;">A closer look at the vehicles we have protected, from daily drivers to exotics. Every service is performed to a professional CoaticLab standard: premium materials, careful hands and no corners cut.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px;align-self:stretch;">
+        <a href="#" onClick="{{ nav.contact }}" style="display:flex;align-items:center;justify-content:center;height:52px;gap:10px;background:#fff;color:#15233F;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:0 20px;text-decoration:none;transition:all .18s;" style-hover="background:#EAF0F8;transform:translateY(-2px);">Get a Quote</a>
+        <a href="tel:+13852896267" style="display:flex;align-items:center;justify-content:center;height:52px;gap:10px;background:rgba(255,255,255,0.08);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:0 20px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.5);transition:all .18s;" style-hover="border-color:#fff;background:rgba(255,255,255,0.16);">Call (385) 289-6267</a>
+      </div>
+    </div>
+  </section>
+  </sc-if>
   <section id="new-media" style="background:#0E1E3C;padding:clamp(56px,8vw,100px) 0 clamp(64px,8vw,104px);">
     <div style="max-width:1360px;margin:0 auto;padding:0 36px;">
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:clamp(30px,4vw,44px);">
@@ -609,7 +629,7 @@ class Component extends DCLogic {
       ppfIdle: !this.state.ppfPlaying,
       ppfAudio: this.state.ppfPlaying,
       playPpf: () => this.setState({ ppfPlaying: true }),
-      headerScrollAttr: (page === 'home' || page === 'about' || page === 'contact' || page === 'projects' ? 'home' : 'none'),
+      headerScrollAttr: isMobile ? 'home' : (page === 'home' || page === 'about' || page === 'contact' || page === 'projects' ? 'home' : 'none'),
       loopVideo: (e) => { const v = e.target; try { v.muted = true; v.loop = true; if (v.getAttribute('data-controls')) v.controls = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {} },
       trifItems, trifGridStyle,
       trifActiveTitle: trifData[trifTab].title,

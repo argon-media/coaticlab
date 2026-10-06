@@ -74,6 +74,7 @@
   .cl-ul{background-image:linear-gradient(#21314d,#21314d);background-repeat:no-repeat;background-position:0 100%;background-size:0% 2px;transition:background-size .3s ease-out;padding-bottom:3px;}
   .cl-ul:hover{background-size:100% 2px;}
 </style>
+<link rel="stylesheet" href="mobile.css">
 </helmet>
 <div style="background-color:#F3F3F3;background-image:none;color:#1B2436;font-family:'Open Sans',sans-serif;min-height:100vh;overflow-x:clip;">
 
@@ -120,6 +121,7 @@
   <main style="display:block;">
     <sc-if value="{{ isCeramic }}">
 <div style="animation:cl-fade .5s ease;">
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
   <section style="position:relative;min-height:clamp(560px,86vh,780px);margin-top:-96px;background:#0C0D10;overflow:hidden;display:flex;">
     <img src="assets/banner-ceramic-wide.png" alt="Ceramic-coated Ford Mustang GTD outside the CoaticLab studio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,0.6) 0%,rgba(6,10,20,0.34) 46%,rgba(6,10,20,0.82) 100%);"></div>
@@ -133,6 +135,24 @@
       </div>
     </div>
   </section>
+  </sc-if>
+  <sc-if value="{{ isMobile }}">
+  <section data-mhero="1" style="position:relative;margin-top:-64px;background:#0C0D10;overflow:hidden;">
+    <div style="position:relative;width:100%;aspect-ratio:6/5;max-height:78vh;overflow:hidden;">
+      <img src="assets/banner-ceramic-wide.png" alt="Ceramic-coated Ford Mustang GTD outside the CoaticLab studio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;">
+      <div style="position:absolute;top:0;left:0;right:0;height:132px;background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 48%,rgba(0,0,0,0) 100%);"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;height:44%;background:linear-gradient(180deg,rgba(12,13,16,0) 0%,rgba(12,13,16,0.78) 62%,#0C0D10 100%);"></div>
+    </div>
+    <div style="position:relative;margin-top:-56px;padding:0 22px 44px;display:flex;flex-direction:column;align-items:flex-start;">
+      <h1 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 850;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.9;margin:0;color:#fff;font-size:38px;text-wrap:balance;">Ceramic Coating</h1>
+      <p style="font-family:'Open Sans',sans-serif;color:#DCE3F0;font-size:15px;line-height:1.6;margin:14px 0 0;">A hydrophobic layer that locks in gloss, repels water and contaminants, and makes washing effortless. Gyeon-certified team, careful hands and no corners cut.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px;align-self:stretch;">
+        <a href="#" onClick="{{ nav.contact }}" style="display:flex;align-items:center;justify-content:center;height:52px;gap:10px;background:#fff;color:#15233F;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:0 20px;text-decoration:none;transition:all .18s;" style-hover="background:#EAF0F8;transform:translateY(-2px);">Get a Quote</a>
+        <a href="tel:+13852896267" style="display:flex;align-items:center;justify-content:center;height:52px;gap:10px;background:rgba(255,255,255,0.08);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:0 20px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.5);transition:all .18s;" style-hover="border-color:#fff;background:rgba(255,255,255,0.16);">Call (385) 289-6267</a>
+      </div>
+    </div>
+  </section>
+  </sc-if>
   <section style="background:#fff;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:stretch;"><div style="position:relative;height:100%;min-height:clamp(420px,48vw,660px);overflow:hidden;background:#0C0D10;"><iframe data-cover-frame="1" src="https://player.vimeo.com/video/1205834236?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0" title="Ceramic coating applied to a vehicle in Clearfield, Utah" allow="autoplay; fullscreen" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:0;pointer-events:none;"></iframe></div><div style="display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,88px) clamp(28px,5vw,80px);"><h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 840;text-transform:uppercase;letter-spacing:-0.012em;line-height:0.94;margin:0 0 18px;color:#21314d;font-size:clamp(24px,3vw,40px);">What Is a Ceramic Coating?</h2><div style="font-family:'Open Sans',sans-serif;color:#1B2436;font-size:clamp(14px,1.4vw,16px);line-height:1.72;margin:0 0 16px;"><p dir="ltr">A ceramic coating is a liquid polymer, usually silica or quartz based, that chemically bonds with your vehicle's clear coat and cures into a hard, semi-permanent layer. It seals the pores of your paint and adds a clear, protective shell over the surface. Think of it like a screen protector for your car, an invisible layer that takes the abuse so the paint underneath does not.</p>
 <p dir="ltr">The technology is not new. Ceramic coatings started in the aerospace world decades ago, protecting aircraft and spacecraft from extreme heat, corrosion, and UV. Once the industry saw how tough and long-lasting they were, the same science was refined with nanotechnology and brought to automotive paint. What once shielded jet engines now protects your finish.</p>
@@ -512,7 +532,7 @@ class Component extends DCLogic {
       ppfIdle: !this.state.ppfPlaying,
       ppfAudio: this.state.ppfPlaying,
       playPpf: () => this.setState({ ppfPlaying: true }),
-      headerScrollAttr: (['home','about','contact','ppf','tint','ceramic','wheel','interior','glass','trim'].indexOf(page) > -1 ? 'home' : 'none'),
+      headerScrollAttr: isMobile ? 'home' : (['home','about','contact','ppf','tint','ceramic','wheel','interior','glass','trim'].indexOf(page) > -1 ? 'home' : 'none'),
       loopVideo: (e) => { const v = e.target; try { v.muted = true; v.loop = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {} },
       trifItems, trifGridStyle,
       trifActiveTitle: trifData[trifTab].title,

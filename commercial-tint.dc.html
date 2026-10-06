@@ -74,6 +74,7 @@
   .cl-ul{background-image:linear-gradient(#21314d,#21314d);background-repeat:no-repeat;background-position:0 100%;background-size:0% 2px;transition:background-size .3s ease-out;padding-bottom:3px;}
   .cl-ul:hover{background-size:100% 2px;}
 </style>
+<link rel="stylesheet" href="mobile.css">
 </helmet>
 <div style="background-color:#F3F3F3;background-image:none;color:#1B2436;font-family:'Open Sans',sans-serif;min-height:100vh;overflow-x:clip;">
 
@@ -120,6 +121,7 @@
   <main style="display:block;">
     <sc-if value="{{ isCommercial }}">
 <div style="animation:cl-fade .5s ease;">
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
   <section style="position:relative;min-height:clamp(560px,86vh,780px);margin-top:-96px;background:#0C0D10;overflow:hidden;display:flex;">
     <img src="assets/commercial-facade-panorama.jpg" alt="Commercial glass facade with CoaticLab window tint" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,12,26,0.55) 0%,rgba(6,12,26,0.42) 46%,rgba(6,12,26,0.86) 100%);"></div>
@@ -134,6 +136,24 @@
       </div>
     </div>
   </section>
+  </sc-if>
+  <sc-if value="{{ isMobile }}">
+  <section data-mhero="1" style="position:relative;margin-top:-64px;background:#0C0D10;overflow:hidden;">
+    <div style="position:relative;width:100%;aspect-ratio:6/5;max-height:78vh;overflow:hidden;">
+      <img src="assets/commercial-facade-panorama.jpg" alt="Commercial glass facade with CoaticLab window tint" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;">
+      <div style="position:absolute;top:0;left:0;right:0;height:132px;background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 48%,rgba(0,0,0,0) 100%);"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;height:44%;background:linear-gradient(180deg,rgba(12,13,16,0) 0%,rgba(12,13,16,0.78) 62%,#0C0D10 100%);"></div>
+    </div>
+    <div style="position:relative;margin-top:-56px;padding:0 22px 44px;display:flex;flex-direction:column;align-items:flex-start;">
+      <h1 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 850;text-transform:uppercase;letter-spacing:-0.015em;line-height:0.9;margin:0;color:#fff;font-size:38px;text-wrap:balance;">Commercial Window Tint</h1>
+      <p style="font-family:'Open Sans',sans-serif;color:#DCE3F0;font-size:15px;line-height:1.6;margin:14px 0 0;">Lower energy costs, block UV, cut glare, and add privacy and security to your workspace. Tint that upgrades any commercial property.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px;align-self:stretch;">
+        <a href="#" onClick="{{ nav.contact }}" style="display:flex;align-items:center;justify-content:center;height:52px;gap:10px;background:#fff;color:#15233F;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:0 20px;text-decoration:none;transition:all .18s;" style-hover="background:#EAF0F8;transform:translateY(-2px);">Get a Quote</a>
+        <a href="tel:+13852896267" style="display:flex;align-items:center;justify-content:center;height:52px;gap:10px;background:rgba(255,255,255,0.08);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:0 20px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.5);transition:all .18s;" style-hover="border-color:#fff;background:rgba(255,255,255,0.16);">Call (385) 289-6267</a>
+      </div>
+    </div>
+  </section>
+  </sc-if>
   <section style="background:#fff;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:stretch;"><div style="position:relative;height:100%;min-height:clamp(420px,48vw,660px);overflow:hidden;background:#0C0D10;"><img src="assets/commercial-tint-compare-c.jpg" alt="Commercial glass building with CoaticLab window tint" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div><div style="display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,88px) clamp(28px,5vw,80px);"><h2 style="font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 840;text-transform:uppercase;letter-spacing:-0.012em;line-height:0.94;margin:0 0 18px;color:#21314d;font-size:clamp(24px,3vw,40px);">Why Tint Your Commercial Space?</h2><p style="font-family:'Open Sans',sans-serif;line-height:1.72;color:#1B2436;font-size:clamp(14px,1.4vw,16px);margin:0 0 16px;">Commercial window tint does far more than change how a building looks. It reduces the heat that pours in through the glass, which eases the load on your HVAC and can lower utility bills month after month.</p><p style="font-family:'Open Sans',sans-serif;line-height:1.72;color:#1B2436;font-size:clamp(14px,1.4vw,16px);margin:0 0 26px;">At the same time it protects interior furnishings from UV fading, cuts glare on screens and desks, adds privacy for staff and clients, and improves security by helping hold shattered glass together. The result is a more comfortable, more professional workspace, and often a smaller energy bill.</p><a href="#" onClick="{{ nav.contact }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:#21314d;color:#fff;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:13.5px;padding:15px 30px;text-decoration:none;transition:all .18s;" style-hover="background:#15294F;">Get a Quote</a></div></div>
   </section>
@@ -446,7 +466,7 @@ class Component extends DCLogic {
       ppfIdle: !this.state.ppfPlaying,
       ppfAudio: this.state.ppfPlaying,
       playPpf: () => this.setState({ ppfPlaying: true }),
-      headerScrollAttr: (page === 'home' || page === 'about' || page === 'contact' || page === 'tint' || page === 'commercial' ? 'home' : 'none'),
+      headerScrollAttr: isMobile ? 'home' : (page === 'home' || page === 'about' || page === 'contact' || page === 'tint' || page === 'commercial' ? 'home' : 'none'),
       loopVideo: (e) => { const v = e.target; try { v.muted = true; v.loop = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {} },
       trifItems, trifGridStyle,
       trifActiveTitle: trifData[trifTab].title,
