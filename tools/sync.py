@@ -101,8 +101,10 @@ for key, src, dest, _url in PAGES:
     open(os.path.join(REPO, dest), 'w', encoding='utf-8').write(s)
     print(f'  {dest:26} logoLinks={n_logo}{extra}')
 
-# runtime + shared components (reviews widgets, video player)
-comps = ['support.js', 'VideoPlayer.dc.html'] + sorted(
+# runtime + shared components (reviews widgets, video player, mobile responsive
+# overrides). mobile.css/mobile.js carry the design's mobile fixes and are linked
+# from every page's <head>; without them the live site has no mobile styles.
+comps = ['support.js', 'VideoPlayer.dc.html', 'mobile.css', 'mobile.js'] + sorted(
     os.path.basename(p) for p in glob.glob(os.path.join(EX, 'GoogleReviews*.dc.html')))
 for c in comps:
     src_c = os.path.join(EX, c)

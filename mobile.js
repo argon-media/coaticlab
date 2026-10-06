@@ -1,0 +1,1 @@
+(function(){var d=document.documentElement;function u(){var b=document.body,y=Math.max(window.scrollY||0,d.scrollTop||0,b?b.scrollTop||0:0);d.classList.toggle('cl-scrolled',y>60);}window.addEventListener('scroll',u,{passive:true});document.addEventListener('scroll',u,{capture:true,passive:true});u();})();
