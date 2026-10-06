@@ -34,7 +34,8 @@
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
       <button onClick="{{ prev }}" aria-label="Previous reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M15 5l-7 7 7 7"></path></svg></button>
       <button onClick="{{ next }}" aria-label="Next reviews" style="flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid #E1E5EC;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:#F4F7F8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21314d" stroke-width="2.2"><path d="M9 5l7 7-7 7"></path></svg></button>
-      <a href="{{ writeUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#21314d;color:#fff;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;box-shadow:0 10px 22px rgba(29,55,108,0.24);" style-hover="background:#15294F;">Write a review</a>
+      <a href="{{ writeUrl }}" data-gr-btn="1" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#21314d;color:#fff;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;box-shadow:0 10px 22px rgba(29,55,108,0.24);" style-hover="background:#15294F;">Write a review</a>
+      <a href="{{ readUrl }}" data-gr-btn="1" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#21314d;border:1px solid #C9D2E0;font-family:'Open Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;text-decoration:none;" style-hover="background:#EEF2F8;">Read more</a>
     </div>
   </div>
 
@@ -91,7 +92,7 @@ class Component extends DCLogic {
     return {
       rating: this.props.rating ?? '5.0',
       count: this.props.count ?? '360+',
-      writeUrl: this.props.writeUrl ?? 'https://search.google.com/local/reviews?placeid=ChIJ5SUPzJ4BU4cRmS7cZqw0N40',
+      writeUrl: this.props.writeUrl ?? 'https://search.google.com/local/reviews?placeid=ChIJ5SUPzJ4BU4cRmS7cZqw0N40', readUrl: this.props.readUrl ?? 'https://www.google.com/maps/place/CoaticLab/@41.0897336,-112.0327797,17z/data=!4m18!1m9!3m8!1s0x8753019ecc0f25e5:0x8d3734ac66dc2e99!2sCoaticLab!8m2!3d41.0897336!4d-112.0327797!9m1!1b1!16s%2Fg%2F11h287xpx0!3m7!1s0x8753019ecc0f25e5:0x8d3734ac66dc2e99!8m2!3d41.0897336!4d-112.0327797!9m1!1b1!16s%2Fg%2F11h287xpx0?entry=ttu',
       reviewsList: visible,
       next: () => this.setState(s => ({ start: s.start + per })),
       prev: () => this.setState(s => ({ start: s.start - per }))
