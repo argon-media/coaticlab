@@ -137,6 +137,27 @@ for f in os.listdir(os.path.join(EX, 'assets')):
         shutil.copy(sp, os.path.join(adir, f)); n_assets += 1
 print(f'assets synced: {n_assets}')
 
+# Downscale the "Choose Your Coverage" diagram PNGs. The design ships them at
+# 1024x1024 (~900KB), but they display ~310px wide; at full size iOS Safari hits
+# its image-decode memory budget and renders them BLANK on phones (fine on desktop).
+# Resize to 640px so they decode on mobile. (Runs every sync; idempotent.)
+COVER_MAX = 640
+try:
+    from PIL import Image
+    n_shrunk = 0
+    for pat in ('ppf-pkg-*.png', 'tint-diagram-*.png'):
+        for fp in glob.glob(os.path.join(adir, pat)):
+            im = Image.open(fp); w, h = im.size
+            if max(w, h) <= COVER_MAX:
+                continue
+            sc = COVER_MAX / max(w, h)
+            im.convert('RGB').resize((round(w * sc), round(h * sc)),
+                                     Image.LANCZOS).save(fp, 'PNG', optimize=True)
+            n_shrunk += 1
+    print(f'coverage PNGs downscaled to {COVER_MAX}px: {n_shrunk}')
+except ImportError:
+    print('  !! Pillow not installed: coverage PNGs NOT downscaled (iOS may blank them)')
+
 # uploads/: the export ships a large WP-style media library; copy ONLY the files
 # actually referenced by the pages (gallery "Fresh From The Studio", etc.)
 udir = os.path.join(REPO, 'uploads')
