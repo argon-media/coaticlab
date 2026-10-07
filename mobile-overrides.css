@@ -1,0 +1,33 @@
+/* CoaticLab — repo-only MOBILE overrides.
+   Loaded AFTER the design's mobile.css so these win. Scoped to mobile
+   (max-width: 767px); desktop/tablet untouched. Maintained in the repo,
+   NOT copied from the Claude Design export. */
+
+@media (max-width: 767px) {
+
+  /* "Choose Your Coverage" image box (PPF + Tint): the design sizes this box with
+     `aspect-ratio` on a box whose only child is position:absolute. iOS Safari
+     computes that box's height as 0 (Chrome honors the aspect-ratio), so the box
+     collapses and the diagram never shows on iPhone. Give it an EXPLICIT pixel
+     height (iOS always honors that) and render the diagram inside it, contained.
+     Selector is more specific than the design's so it wins the cascade. */
+  div[style*="rgb(18, 39, 69)"]:has(> img[src*="tint-diagram-"]),
+  div[style*="rgb(18, 39, 69)"]:has(> img[src*="ppf-pkg-"]) {
+    aspect-ratio: auto !important;
+    height: 280px !important;
+    min-height: 280px !important;
+    display: block !important;
+    position: relative !important;
+  }
+  div[style*="rgb(18, 39, 69)"] > img[src*="tint-diagram-"],
+  div[style*="rgb(18, 39, 69)"] > img[src*="ppf-pkg-"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+  }
+
+}
