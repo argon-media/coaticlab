@@ -109,9 +109,8 @@
 
 /* Round 4 mobile fixes */
 @media (max-width: 767px) {
-  /* Hero fills the first screen; image keeps its frame, text centered in the rest */
-  [data-mhero] { min-height: calc(100svh - 150px); display: flex; flex-direction: column; }
-  [data-mhero] > div:nth-child(2) { flex: 1 1 auto; justify-content: center; }
+  /* Hero sizes to its content on every phone (no viewport-height stretch) */
+  [data-mhero] { min-height: 0; display: flex; flex-direction: column; }
   /* Timelines inside scrollers: hide nested rail lines */
   [data-film] div:is([data-cs*="top: 9px; height: 2px"],[style*="top: 9px; height: 2px"]) { display: none !important; }
   /* Two-up grids: Tesla builds, Projects videos + photos */
@@ -133,7 +132,7 @@
   /* Commercial Tint: show the full photos */
   :is([data-cs*="min-height: clamp(420px"],[style*="min-height: clamp(420px"]):has(> img[src*="commercial-tint-compare"]) { min-height: 0 !important; height: auto !important; }
   img[src*="commercial-tint-compare"] { position: relative !important; inset: auto !important; height: auto !important; display: block; }
-  img[src*="commercial-storefront-doors"] { height: auto !important; }
+  img[src*="commercial-storefront-doors"] { height: auto !important; aspect-ratio: 4 / 3; object-fit: cover !important; object-position: 50% 50% !important; }
 }
 
 @media (max-width: 1079px) {
@@ -230,3 +229,29 @@
 
 /* Forms: square input fields on every screen size */
 form input:not([type="checkbox"]):not([type="radio"]), form select, form textarea { border-radius: 0 !important; }
+
+/* PPF Choose Your Coverage: desktop diagram framed with equal spacing, label above image */
+@media (min-width: 1080px) {
+  :is([data-cs*="background: rgb(18, 39, 69)"],[style*="background: rgb(18, 39, 69)"]):has(> img[src*="ppf-pkg-"]) { min-height: 0 !important; display: flex !important; flex-direction: column; justify-content: center; gap: 20px; padding: 40px; }
+  :is([data-cs*="background: rgb(18, 39, 69)"],[style*="background: rgb(18, 39, 69)"]):has(> img[src*="ppf-pkg-"]) > span { position: relative !important; top: auto !important; left: auto !important; align-self: flex-start; }
+  :is([data-cs*="background: rgb(18, 39, 69)"],[style*="background: rgb(18, 39, 69)"]) > img[src*="ppf-pkg-"] { position: relative !important; inset: auto !important; width: 100% !important; height: auto !important; aspect-ratio: 1 / 1; padding: 0 !important; display: block; z-index: 1; }
+}
+
+/* Home counter: left aligned on phones */
+@media (max-width: 767px) {
+  [data-count-wrap] { padding-left: 0 !important; text-align: left !important; }
+}
+
+/* Process steps on phones: image first, number sits inline with the heading */
+@media (max-width: 767px) {
+  .tlrail-card:has(> div:is([data-cs*="height: clamp(260px"],[style*="height: clamp(260px"])) { display: grid !important; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center; }
+  .tlrail-card:has(> div:is([data-cs*="height: clamp(260px"],[style*="height: clamp(260px"])) > div:first-child { grid-row: 2; grid-column: 1; margin: 16px 0 9px !important; font-size: 22px !important; line-height: 1 !important; }
+  .tlrail-card > div:is([data-cs*="height: clamp(260px"],[style*="height: clamp(260px"]) { grid-row: 1; grid-column: 1 / -1; }
+  .tlrail-card:has(> div:is([data-cs*="height: clamp(260px"],[style*="height: clamp(260px"])) > h4 { grid-row: 2; grid-column: 2; margin: 16px 0 9px !important; line-height: 1.1; }
+  .tlrail-card:has(> div:is([data-cs*="height: clamp(260px"],[style*="height: clamp(260px"])) > p { grid-row: 3; grid-column: 1 / -1; }
+}
+
+/* Quote forms: "Prefer to talk?" stays centered under the trust badges */
+@media (max-width: 1079px) {
+  section form p:has(> a[href^="tel:"]) { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+}
